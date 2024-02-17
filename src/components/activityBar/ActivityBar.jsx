@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./activityBar.scss";
-import { DateCalendar } from "../../commons/date/DateCalendar";
+
 import { LanguageSelector } from "../../commons/languageSelector/LanguageSelector";
 import { useDispatch, useSelector } from "react-redux";
 import { MenuIcon } from "../../commons/icons/MenuIcon";
 import { motion, useAnimation } from "framer-motion";
 import { setScreenWidth } from "../../store/slice/screen/screenSlice";
+import { setToggleMenuDropdown } from "../../store/slice/activityBar/activityBarSlice";
+import { MenuDropdown } from "./MenuDropdown";
 
 export const ActivityBar = ({ language }) => {
   const controls = useAnimation();
   const windowWidth = useSelector((state) => state.screenSlice.screenWidth);
-
+  const menuDropdownState = useSelector(state => state.activityBarSlice.menuDropdown);
 
   const [prevScrollY, setPrevScrollY] = useState(0);
 
@@ -50,20 +52,30 @@ export const ActivityBar = ({ language }) => {
       <div>
         <LanguageSelector language={language} />
       </div>
+      <SectionSelector language={language} windowWidth={windowWidth} menuDropdownState={menuDropdownState}/>
+      
 
-      <SectionSelector language={language} windowWidth={windowWidth}/>
-
-      {/* <DateCalendar language={language} /> */}
+      {
+        menuDropdownState && <MenuDropdown language={language} />
+      }
     </motion.nav>
   );
 };
 
-const SectionSelector = ({ language , windowWidth  }) => {
+const SectionSelector = ({ language , windowWidth , menuDropdownState }) => {
   const dispatch = useDispatch();
 
 
   window.onresize = function () {
     dispatch(setScreenWidth(window.innerWidth));
+  };
+
+  useEffect(() => {
+    dispatch(setScreenWidth(window.innerWidth));
+  }, []);
+
+  const handleToggleMenuDropdown = () => {
+    dispatch(setToggleMenuDropdown(!menuDropdownState));
   };
 
   return windowWidth > 768 ? (
@@ -82,8 +94,10 @@ const SectionSelector = ({ language , windowWidth  }) => {
       </div>
     </div>
   ) : (
-    <div className="activitybar__sectionselector__menuIcon">
+    <div onClick={handleToggleMenuDropdown} className="activitybar__sectionselector__menuIcon">
       <MenuIcon />
     </div>
   );
 };
+
+ 
