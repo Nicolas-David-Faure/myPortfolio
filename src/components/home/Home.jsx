@@ -1,8 +1,8 @@
 import React from 'react'
 import './home.scss'
 import { GithubIcon } from '../../commons/icons/GithubIcon'
-import {LinkedinIcon  } from '../../commons/icons/LinkedinIcon'
-import {ResumeIcon} from '../../commons/icons/ResumeIcon'
+import { LinkedinIcon  } from '../../commons/icons/LinkedinIcon'
+import { ResumeIcon } from '../../commons/icons/ResumeIcon'
 import { MailIcon } from '../../commons/icons/MailIcon'
 
 export const Home = ({language}) => {
