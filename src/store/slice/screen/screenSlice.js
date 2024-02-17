@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const initialState = {
+ const initialState = {
   screenWidth: null,
 };
 
-const screenSlice = createSlice({
+export const screenSlice = createSlice({
   name: 'screenSlice',
   initialState,
   reducers: {

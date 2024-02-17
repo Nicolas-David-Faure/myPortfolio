@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./activityBar.scss";
 import { DateCalendar } from "../../commons/date/DateCalendar";
 import { LanguageSelector } from "../../commons/languageSelector/LanguageSelector";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MenuIcon } from "../../commons/icons/MenuIcon";
 import { motion, useAnimation } from "framer-motion";
+import { setScreenWidth } from "../../store/slice/screen/screenSlice";
 
 export const ActivityBar = ({ language }) => {
   const controls = useAnimation();
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const windowWidth = useSelector((state) => state.screenSlice.screenWidth);
+
 
   const [prevScrollY, setPrevScrollY] = useState(0);
 
@@ -49,17 +51,19 @@ export const ActivityBar = ({ language }) => {
         <LanguageSelector language={language} />
       </div>
 
-      <SectionSelector language={language} setWindowWidth={setWindowWidth} windowWidth={windowWidth}/>
+      <SectionSelector language={language} windowWidth={windowWidth}/>
 
       {/* <DateCalendar language={language} /> */}
     </motion.nav>
   );
 };
 
-const SectionSelector = ({ language , windowWidth , setWindowWidth }) => {
- 
+const SectionSelector = ({ language , windowWidth  }) => {
+  const dispatch = useDispatch();
+
+
   window.onresize = function () {
-    setWindowWidth(window.innerWidth);
+    dispatch(setScreenWidth(window.innerWidth));
   };
 
   return windowWidth > 768 ? (
