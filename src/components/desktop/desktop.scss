@@ -1,0 +1,34 @@
+@import "../../assets/sass/varibles";
+
+.desktop__{
+  &main {
+  width: $desktop-width;
+  min-height: $desktop-height;
+ 
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+
+
+  
+}
+
+&folder_group{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+
+&title{
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+
+
+}
+}
