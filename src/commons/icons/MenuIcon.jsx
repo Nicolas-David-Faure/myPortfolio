@@ -1,6 +1,6 @@
 import React from "react";
 
-export const MenuIcon = () => {
+export const MenuIcon = ({ styles }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +9,7 @@ export const MenuIcon = () => {
       strokeWidth={1.5}
       stroke="currentColor"
       color="white"
-      style={{ fill: "rgba(255, 255, 255, 0.8)" , width: '24px', height: '24px'}}
+      style={styles}
     >
       <path
         strokeLinecap="round"
