@@ -13,7 +13,6 @@ export const LanguageSelector = ({ language }) => {
   const [dropdown, setDropdown] = useState(false);
   const [isNewLanguage, setIsNewLanguage] = useState(false);
 
-
   const dispatch = useDispatch();
 
   const switchLanguage = Object.keys(languageData).find((e) => e !== language);
@@ -28,7 +27,6 @@ export const LanguageSelector = ({ language }) => {
     if (!dropdown) {
       // Si el dropdown es falso al finalizar la animación, ocultamos el elemento
       setDropdown(false);
-    
     }
   };
 
@@ -36,7 +34,6 @@ export const LanguageSelector = ({ language }) => {
     on: { y: [0, 25], opacity: 1 },
     off: { y: 0, x: -10, opacity: 0, zIndex: -1 },
   };
-
 
   useEffect(() => {
     if (dropdown) {
@@ -84,6 +81,15 @@ export const LanguageSelector = ({ language }) => {
 };
 
 const LanguageContainer = ({ language }) => {
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  window.onresize = () => {
+    setScreenSize(window.innerWidth);
+  };
+
+  const languageData = {
+    es: { title: screenSize > 800 ? "Español" : "Es", flag: "🇪🇸" },
+    en: { title: screenSize > 800 ? "English" : "En", flag: "🇬🇧" },
+  };
   return (
     <>
       <strong className="languageSelector__flag">
