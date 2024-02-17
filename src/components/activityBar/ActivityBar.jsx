@@ -34,6 +34,9 @@ const SectionSelector = ({ language }) => {
         <p>{language === 'es' ? 'Proyectos' : 'Projects'}</p>
       </div>
       <div className='activitybar__sectionselector__section'>
+        <p>{language === 'es' ? 'Sobre mí' : 'About me'}</p>
+      </div>
+      <div className='activitybar__sectionselector__section'>
         <p>{language === 'es' ? 'Contacto' : 'Contact'}</p>
       </div>
     </div>

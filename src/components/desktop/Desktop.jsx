@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./desktop.scss";
 //*Mooks
 import { data_folders } from "../../mooks/folders.json";
+import { Projects } from "../projects/Projects";
 //*Components
 
 
@@ -15,7 +16,10 @@ const Desktop = ({ language }) => {
       <Title language={language} />
 
 
+
       <InfoContact language={language} />
+      <Projects language={language} />
+
     </div>
   );
 };
