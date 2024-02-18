@@ -3,9 +3,42 @@
     width: 100%;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    
     align-items: center;
     flex-direction: column;
     gap: 3rem;
   }
+
+  &container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+   
+  }
+
+
+}
+
+
+
+.ProjectsList__{
+  &main{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  border: 1px solid red;
+
+}
+
+
 }
