@@ -1,7 +1,8 @@
 import React from 'react'
 import './projects.scss'
 import { motion } from 'framer-motion'
-
+import iconDefaultStyles from '../../mooks/iconDefaultStyles.json'
+import { RightArrowIcon } from '../../commons/icons/RightArrowIcon'
 
 const projectsData = {
   en: [{
@@ -52,18 +53,28 @@ const ProjectsList = ({ language , projectsData }) => {
 
   console.log(projectsData[language]	)
 
+  const handleMouseEnter = (e) => {
+    console.log('Mouse entered')
+  }
+  const handleMouseLeave = (e) => {
+    console.log('Mouse left')
+  }
 
   return (
-    <ul className='ProjectsList__main'>
+    <ul className='projectsList__main'>
       {
         projectsData[language].map((project, index) => {
           return (
-            <li key={index} className='ProjectsList__item'>
+            <li key={index} className='projectsList__item'>
             
-              <div className='ProjectsList__item__content'>
-                <motion.h2
+              <div className='projectsList__item__content'>
 
-                
+                <div className='projectsList__item__icon'>
+                  <RightArrowIcon style={{...iconDefaultStyles, width: 20, height: 20}} />
+                </div>
+                <motion.h2
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >{project.title}</motion.h2>
               
               </div>

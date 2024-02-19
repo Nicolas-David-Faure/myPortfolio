@@ -26,7 +26,7 @@
 
 
 
-.ProjectsList__{
+.projectsList__{
   &main{
   width: 100%;
   display: flex;
@@ -37,7 +37,42 @@
   padding: 0;
   margin: 0;
   border: 1px solid red;
+  list-style: none;
+  
+}
+&item{
+  width: 100%;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+
+
+  &__content{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 1rem;
+    padding: 0 20px;
+    margin: 0;
+    border: 1px solid red;
+  }
+
+  &__icon{
+    
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    
+  }
 }
 
 
