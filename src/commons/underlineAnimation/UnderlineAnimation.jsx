@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const UnderlineAnimation = ({color = "#3498db", height = 2 , onHoverMauseState}) => {
+const UnderlineAnimation = ({color = "#3498db", height = 2 , onHoverMauseState , toggleProject}) => {
 
-  let variantState = onHoverMauseState ? "visible" : "hidden";
+  let variantState = onHoverMauseState || toggleProject ? "visible" : "hidden";
 
 
   const variants = {
