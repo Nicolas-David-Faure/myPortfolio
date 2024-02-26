@@ -4,11 +4,7 @@ import { motion } from "framer-motion";
 import iconDefaultStyles from "../../mooks/iconDefaultStyles.json";
 import { RightArrowIcon } from "../../commons/icons/RightArrowIcon";
 import UnderlineAnimation from "../../commons/underlineAnimation/UnderlineAnimation";
-
 import projectImg from "../../assets/img/trabajo-img.jpg";
-
-
-
 
 const projectsData = {
   en: [
@@ -27,7 +23,7 @@ const projectsData = {
       id: 2,
     },
     {
-      title: "E-Commerce - Plataforma 5",
+      title: "TMDBFLIX",
       description: "This is a description of the project 3",
       img: projectImg,
       link: "https://www.google.com",
@@ -50,7 +46,7 @@ const projectsData = {
       id: 2,
     },
     {
-      title: "E-Commerce - Plataforma 5",
+      title: "TMDBFLIX",
       description: "Esta es una descripción del proyecto 3",
       img: projectImg,
       link: "https://www.google.com",
@@ -79,12 +75,10 @@ const ProjectsList = ({ language, project }) => {
   };
 
   const descriptionVariants = {
-    on: { height: [0, 700], opacity: 1 },
-    off: { height: 0 },
+    on: { height: "auto", opacity: 1 },
+    off: { height: 0, opacity: 0 },
   };
 
-
-  console.log(project.img);
   return (
     <li className="projectsList__item">
       <div className="projectsList__item__content">
@@ -125,16 +119,28 @@ const ProjectsList = ({ language, project }) => {
       >
         {toggleProject && (
           <>
-            <figcaption >
-
+            <figcaption>
               <img src={project.img} alt={project.title} />
-
             </figcaption>
 
 
+          <div>
 
+             <div className="projectsList__item__description__text">
 
-            <p>{project.description}</p>
+              <strong>{project.description}</strong>
+            </div>
+
+            <div className="projectsList__item__description__footer">
+              <button>
+                  {language === "en" ? "View Project" : "Ver Proyecto"}
+              </button>
+              <button>
+                  {language === "en" ? "View Code" : "Ver Código"}
+              </button>
+            </div>
+          </div>
+           
           </>
         )}
       </motion.div>
