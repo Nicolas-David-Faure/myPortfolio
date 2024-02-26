@@ -10,22 +10,24 @@ const projectsData = {
   en: [
     {
       title: "Onefeel - Plataforma 5",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 1,
-
     },
     {
       title: "E-Wine - Plataforma 5",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 2,
     },
     {
       title: "TMDBFLIX",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 3,
@@ -34,21 +36,24 @@ const projectsData = {
   es: [
     {
       title: "Onefeel - Plataforma 5",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 1,
     },
     {
       title: "E-Wine - Plataforma 5",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 2,
     },
     {
       title: "TMDBFLIX",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 3,
@@ -87,7 +92,6 @@ const ProjectsList = ({ language, project }) => {
           variants={arrowVariants}
           className="projectsList__item__icon"
         >
- 
           <RightArrowIcon
             style={{ ...iconDefaultStyles, width: 20, height: 20 }}
           />
@@ -119,24 +123,53 @@ const ProjectsList = ({ language, project }) => {
       >
         {toggleProject && (
           <>
-            <figcaption>
+            <motion.figcaption
+              initial={{ opacity: 0, x: 0, y: -50 }}
+              animate={{ opacity: [0, 0, 0.4, 1], x: 0, y: 0 }}
+              transition={{
+                duration: 1,
+                delay: 0.1,
+                type: "spring",
+                stiffness: 50,
+              }}
+            >
               <img src={project.img} alt={project.title} />
-            </figcaption>
+            </motion.figcaption>
 
-            <div className="projectsList__item__description__container">
+            <motion.div
+              initial={{ opacity: 0, x: 0, y: -50 }}
+              animate={{ opacity: [0, 0, 0.4, 1], x: 0, y: 0 }}
+              transition={{
+                duration: 1,
+                delay: 0.6,
+                type: "spring",
+                stiffness: 50,
+              }}
+              className="projectsList__item__description__container"
+            >
               <div className="projectsList__item__description__text">
                 <strong>{project.description}</strong>
               </div>
 
-              <div className="projectsList__item__description__footer">
+              <motion.div
+                initial={{ opacity: 0, x: 0, y: -50 }}
+                animate={{ opacity: [0, 0, 0.4, 1], x: 0, y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 1.2,
+                  type: "spring",
+                  stiffness: 50,
+                }}
+                className="projectsList__item__description__footer"
+              >
                 <button>
                   {language === "en" ? "View Project" : "Ver Proyecto"}
                 </button>
                 <button>
                   {language === "en" ? "View Code" : "Ver Código"}
                 </button>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </>
         )}
       </motion.div>
