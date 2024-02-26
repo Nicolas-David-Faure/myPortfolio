@@ -10,21 +10,22 @@ const projectsData = {
   en: [
     {
       title: "Onefeel - Plataforma 5",
-      description: "This is a description of the project 1",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 1,
+
     },
     {
       title: "E-Wine - Plataforma 5",
-      description: "This is a description of the project 2",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 2,
     },
     {
       title: "TMDBFLIX",
-      description: "This is a description of the project 3",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 3,
@@ -33,21 +34,21 @@ const projectsData = {
   es: [
     {
       title: "Onefeel - Plataforma 5",
-      description: "Esta es una descripción del proyecto 1",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 1,
     },
     {
       title: "E-Wine - Plataforma 5",
-      description: "Esta es una descripción del proyecto 2",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 2,
     },
     {
       title: "TMDBFLIX",
-      description: "Esta es una descripción del proyecto 3",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
       img: projectImg,
       link: "https://www.google.com",
       id: 3,
@@ -66,8 +67,6 @@ const ProjectsList = ({ language, project }) => {
   };
 
   const handleToggleProject = () => setToggleProject(!toggleProject);
-
-  console.log(toggleProject);
 
   const arrowVariants = {
     on: { rotate: 90 },
@@ -88,6 +87,7 @@ const ProjectsList = ({ language, project }) => {
           variants={arrowVariants}
           className="projectsList__item__icon"
         >
+ 
           <RightArrowIcon
             style={{ ...iconDefaultStyles, width: 20, height: 20 }}
           />
@@ -123,24 +123,20 @@ const ProjectsList = ({ language, project }) => {
               <img src={project.img} alt={project.title} />
             </figcaption>
 
+            <div className="projectsList__item__description__container">
+              <div className="projectsList__item__description__text">
+                <strong>{project.description}</strong>
+              </div>
 
-          <div>
-
-             <div className="projectsList__item__description__text">
-
-              <strong>{project.description}</strong>
-            </div>
-
-            <div className="projectsList__item__description__footer">
-              <button>
+              <div className="projectsList__item__description__footer">
+                <button>
                   {language === "en" ? "View Project" : "Ver Proyecto"}
-              </button>
-              <button>
+                </button>
+                <button>
                   {language === "en" ? "View Code" : "Ver Código"}
-              </button>
+                </button>
+              </div>
             </div>
-          </div>
-           
           </>
         )}
       </motion.div>
