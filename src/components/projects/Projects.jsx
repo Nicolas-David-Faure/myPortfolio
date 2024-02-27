@@ -1,65 +1,77 @@
 import React, { useState } from "react";
 import "./projects.scss";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import iconDefaultStyles from "../../mooks/iconDefaultStyles.json";
 import { RightArrowIcon } from "../../commons/icons/RightArrowIcon";
 import UnderlineAnimation from "../../commons/underlineAnimation/UnderlineAnimation";
 import projectImg from "../../assets/img/trabajo-img.jpg";
 
-const projectsData = {
-  en: [
-    {
-      title: "Onefeel - Plataforma 5",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-      img: projectImg,
-      link: "https://www.google.com",
-      id: 1,
+//*Frontend
+import { ReactIcon } from "../../commons/icons/techs/front/ReactIcon";
+import { CssIcon } from "../../commons/icons/techs/front/CssIcon";
+import { JavascriptIcon } from "../../commons/icons/techs/front/JavascriptIcon";
+// import { NextIcon } from "../../commons/icons/techs/front/NextIcon";
+// import { ReduxIcon } from "../../commons/icons/techs/front/ReduxIcon";
+//*Backend
+import { FirebaseIcon } from "../../commons/icons/techs/back/FirebaseIcon";
+
+const projectsData = [
+  {
+    title: "Box - Plataforma 5",
+    description: {
+      en: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      es: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
     },
-    {
-      title: "E-Wine - Plataforma 5",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-      img: projectImg,
-      link: "https://www.google.com",
-      id: 2,
+
+    img: projectImg,
+    link: "https://www.google.com",
+    id: 1,
+    techs: {
+      front: ["next", "tailwind", "redux", "typescript"],
+      back: ["nest", "mongodb", "typescript"],
     },
-    {
-      title: "TMDBFLIX",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-      img: projectImg,
-      link: "https://www.google.com",
-      id: 3,
+  },
+  {
+    title: "Onefeel - Plataforma 5",
+    description: {
+      en: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      es: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
     },
-  ],
-  es: [
-    {
-      title: "Onefeel - Plataforma 5",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-      img: projectImg,
-      link: "https://www.google.com",
-      id: 1,
+    img: projectImg,
+    link: "https://www.google.com",
+    id: 2,
+    techs: { front: ["react", "sass", "redux"], back: ["firebase", "openai"] },
+  },
+  {
+    title: "E-Wine - Plataforma 5",
+    description: {
+      en: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      es: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
     },
-    {
-      title: "E-Wine - Plataforma 5",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-      img: projectImg,
-      link: "https://www.google.com",
-      id: 2,
+    img: projectImg,
+    link: "https://www.google.com",
+    id: 3,
+    techs: {
+      front: ["react", "sass", "redux"],
+      back: ["express", "postgress"],
     },
-    {
-      title: "TMDBFLIX",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-      img: projectImg,
-      link: "https://www.google.com",
-      id: 3,
+  },
+  {
+    title: "TMDBFLIX",
+    description: {
+      en: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
+      es: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
     },
-  ],
-};
+    img: projectImg,
+    link: "https://www.google.com",
+    id: 4,
+    techs: {
+      front: ["react", "sass", "redux"],
+      back: ["express", "postgress"],
+    },
+  },
+];
+
 
 const ProjectsList = ({ language, project }) => {
   const [mauseEnterState, setMauseEnterState] = useState(false);
@@ -81,6 +93,11 @@ const ProjectsList = ({ language, project }) => {
   const descriptionVariants = {
     on: { height: "auto", opacity: 1 },
     off: { height: 0, opacity: 0 },
+  };
+
+  const projectsVariants = {
+    on: { opacity: [0, 0, 0.4, 1], x: 0, y: 0, zIndex: 1 },
+    off: { opacity: 0, zIndex: -1, y: -50 },
   };
 
   return (
@@ -121,57 +138,63 @@ const ProjectsList = ({ language, project }) => {
         transition={{ duration: 0.5 }}
         className="projectsList__item__description"
       >
-        {toggleProject && (
-          <>
-            <motion.figcaption
-              initial={{ opacity: 0, x: 0, y: -50 }}
-              animate={{ opacity: [0, 0, 0.4, 1], x: 0, y: 0 }}
-              transition={{
-                duration: 1,
-                delay: 0.1,
-                type: "spring",
-                stiffness: 50,
-              }}
-            >
-              <img src={project.img} alt={project.title} />
-            </motion.figcaption>
-
-            <motion.div
-              initial={{ opacity: 0, x: 0, y: -50 }}
-              animate={{ opacity: [0, 0, 0.4, 1], x: 0, y: 0 }}
-              transition={{
-                duration: 1,
-                delay: 0.6,
-                type: "spring",
-                stiffness: 50,
-              }}
-              className="projectsList__item__description__container"
-            >
-              <div className="projectsList__item__description__text">
-                <strong>{project.description}</strong>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 0, y: -50 }}
-                animate={{ opacity: [0, 0, 0.4, 1], x: 0, y: 0 }}
+        <AnimatePresence>
+          {
+            <>
+              <motion.figcaption
+                initial={{ opacity: 0, y: -50, zIndex: -1 }}
+                animate={toggleProject ? "on" : "off"}
+                variants={projectsVariants}
                 transition={{
-                  duration: 1,
-                  delay: 1.2,
+                  duration: toggleProject ? 1 : 0.1,
+                  delay: 0.1,
                   type: "spring",
                   stiffness: 50,
                 }}
-                className="projectsList__item__description__footer"
               >
-                <button>
-                  {language === "en" ? "View Project" : "Ver Proyecto"}
-                </button>
-                <button>
-                  {language === "en" ? "View Code" : "Ver Código"}
-                </button>
+                <img src={project.img} alt={project.title} />
+              </motion.figcaption>
+
+              <motion.div
+                initial={{ opacity: 0, x: 0, y: -50, zIndex: -1 }}
+                animate={toggleProject ? "on" : "off"}
+                variants={projectsVariants}
+                transition={{
+                  duration: toggleProject ? 1 : 0.1,
+
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 50,
+                }}
+                className="projectsList__item__description__container"
+              >
+                <div className="projectsList__item__description__text">
+                  <strong>{project.description[language]}</strong>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, zIndex: -1, y: -50 }}
+                  animate={toggleProject ? "on" : "off"}
+                  variants={projectsVariants}
+                  transition={{
+                    duration: toggleProject ? 1 : 0.1,
+                    delay: 1.2,
+                    type: "spring",
+                    stiffness: 50,
+                  }}
+                  className="projectsList__item__description__footer"
+                >
+                  <button>
+                    {language === "en" ? "View Project" : "Ver Proyecto"}
+                  </button>
+                  <button>
+                    {language === "en" ? "View Code" : "Ver Código"}
+                  </button>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          </>
-        )}
+            </>
+          }
+        </AnimatePresence>
       </motion.div>
     </li>
   );
@@ -186,7 +209,7 @@ export const Projects = ({ language }) => {
         </div>
 
         <ul className="projectsList__main">
-          {projectsData[language].map((project, index) => {
+          {projectsData.map((project, index) => {
             return (
               <ProjectsList key={index} language={language} project={project} />
             );
