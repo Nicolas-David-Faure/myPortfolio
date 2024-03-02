@@ -14,6 +14,7 @@ import { JavascriptIcon } from "../../commons/icons/techs/front/JavascriptIcon";
 // import { ReduxIcon } from "../../commons/icons/techs/front/ReduxIcon";
 //*Backend
 import { FirebaseIcon } from "../../commons/icons/techs/back/FirebaseIcon";
+import { TechsGallery } from "./TechsGallery";
 
 const projectsData = [
   {
@@ -172,6 +173,9 @@ const ProjectsList = ({ language, project }) => {
                   <strong>{project.description[language]}</strong>
                 </div>
 
+
+
+                
                 <motion.div
                   initial={{ opacity: 0, zIndex: -1, y: -50 }}
                   animate={toggleProject ? "on" : "off"}
