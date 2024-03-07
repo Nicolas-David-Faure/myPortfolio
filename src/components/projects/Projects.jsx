@@ -72,7 +72,6 @@ const projectsData = [
   },
 ];
 
-
 const ProjectsList = ({ language, project }) => {
   const [mauseEnterState, setMauseEnterState] = useState(false);
   const [toggleProject, setToggleProject] = useState(false);
@@ -138,9 +137,9 @@ const ProjectsList = ({ language, project }) => {
         transition={{ duration: 0.5 }}
         className="projectsList__item__description"
       >
-        <AnimatePresence>
-          {
-            <>
+        {toggleProject && (
+          <>
+            <AnimatePresence>
               <motion.figcaption
                 initial={{ opacity: 0, y: -50, zIndex: -1 }}
                 animate={toggleProject ? "on" : "off"}
@@ -192,9 +191,9 @@ const ProjectsList = ({ language, project }) => {
                   </button>
                 </motion.div>
               </motion.div>
-            </>
-          }
-        </AnimatePresence>
+            </AnimatePresence>
+          </>
+        )}
       </motion.div>
     </li>
   );

@@ -1,6 +1,14 @@
 @import '../../assets/sass/varibles.scss';
 
 .home__ {
+
+  &container{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../../assets/img/nasa.jpg'); 
+    background-position: center;
+    background-size: cover;
+  }
   &main {
     display: flex;
     flex-direction: column;
@@ -8,7 +16,8 @@
     padding-top: 4rem;
     min-height: 100vh;
     width: 100%;
-    background-color: $color5;
+    background-color: rgba(177, 6, 6, 0.178);
+    justify-content: space-around;
   }
 
   &banner {
@@ -21,7 +30,7 @@
   }
 
   &title{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: $color1;
     text-align: center;
