@@ -3,6 +3,40 @@ import "./aboutme.scss";
 import backEndIcon from "../../assets/img/servidor.png";
 import frontEndIcon from "../../assets/img/front.png";
 import dbIcon from "../../assets/img/db.png";
+//logos skills
+//front
+import cssLogo from "../../assets/img/logo-skills/CSS3.png";
+import htmlLogo from "../../assets/img/logo-skills/HTML5.png";
+import javascriptLogo from "../../assets/img/logo-skills/JS.png";
+import reactLogo from "../../assets/img/logo-skills/React.png";
+import nextLogo from "../../assets/img/logo-skills/next-js.svg";
+import reduxLogo from "../../assets/img/logo-skills/Redux.png";
+import sassLogo from "../../assets/img/logo-skills/SASS.png";
+import tailwindLogo from "../../assets/img/logo-skills/Tailwind.png";
+import typescriptLogo from "../../assets/img/logo-skills/ts.png";
+import nextLogo from "../../assets/img/logo-skills/next-js.svg";
+//back
+import expressLogo from "../../assets/img/logo-skills/exjs.png";
+import firebaseLogo from "../../assets/img/logo-skills/firebase.png";
+import mongodbLogo from "../../assets/img/logo-skills/mongodb.png";
+import nodeLogo from "../../assets/img/logo-skills/node-js.svg";
+import postgresLogo from "../../assets/img/logo-skills/postgres.png";
+import nestLogo from "../../assets/img/logo-skills/NestJS.svg";
+import openaiLogo from "../../assets/img/logo-skills/openai.webp";
+import jwtLogo from "../../assets/img/logo-skills/jwt.png";
+import tsLogo from "../../assets/img/logo-skills/ts.png";
+//tools
+import gitLogo from "../../assets/img/logo-skills/Git.png";
+import githubLogo from "../../assets/img/logo-skills/Github.png";
+import dockerLogo from "../../assets/img/logo-skills/docker.png";
+
+
+
+
+
+
+
+
 
 export const Aboutme = ({ language }) => {
   return (
