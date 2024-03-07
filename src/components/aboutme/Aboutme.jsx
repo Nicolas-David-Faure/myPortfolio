@@ -14,7 +14,7 @@ import reduxLogo from "../../assets/img/logo-skills/Redux.png";
 import sassLogo from "../../assets/img/logo-skills/SASS.png";
 import tailwindLogo from "../../assets/img/logo-skills/Tailwind.png";
 import typescriptLogo from "../../assets/img/logo-skills/ts.png";
-import nextLogo from "../../assets/img/logo-skills/next-js.svg";
+
 //back
 import expressLogo from "../../assets/img/logo-skills/exjs.png";
 import firebaseLogo from "../../assets/img/logo-skills/firebase.png";
@@ -30,14 +30,30 @@ import gitLogo from "../../assets/img/logo-skills/Git.png";
 import githubLogo from "../../assets/img/logo-skills/Github.png";
 import dockerLogo from "../../assets/img/logo-skills/docker.png";
 
-
-
-
-
-
-
-
-
+const arrayLogos = [
+      { name: "CSS", logo: cssLogo },
+      { name: "HTML", logo: htmlLogo },
+      { name: "Javascript", logo: javascriptLogo },
+      { name: "React", logo: reactLogo },
+      { name: "Next.js", logo: nextLogo },
+      { name: "Redux", logo: reduxLogo },
+      { name: "Sass", logo: sassLogo },
+      { name: "Tailwind", logo: tailwindLogo },
+      { name: "Typescript", logo: typescriptLogo },
+      { name: "Express", logo: expressLogo },
+      { name: "Firebase", logo: firebaseLogo },
+      { name: "MongoDB", logo: mongodbLogo },
+      { name: "Node.js", logo: nodeLogo },
+      { name: "Postgres", logo: postgresLogo },
+      { name: "Nest", logo: nestLogo },
+      { name: "OpenAI", logo: openaiLogo },
+      { name: "JWT", logo: jwtLogo },
+      { name: "Typescript", logo: tsLogo },
+      { name: "Git", logo: gitLogo },
+      { name: "Github", logo: githubLogo },
+      { name: "Docker", logo: dockerLogo },
+    ]
+ 
 export const Aboutme = ({ language }) => {
   return (
     <section className="aboutme__main">
@@ -88,6 +104,23 @@ export const Aboutme = ({ language }) => {
           </div>
         </div>
       </div>
+
+
+
+
+      <div className="aboutme__skills">
+        <h2>{language === "en" ? "Skills" : "Habilidades"}</h2>
+        <div className="aboutme__skills__container">
+          {arrayLogos.map((logo, i) => (
+            <div key={i} className="aboutme__skills__item">
+              <img src={logo.logo} alt={logo.name} />
+              <p>{logo.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
     </section>
   );
 };
