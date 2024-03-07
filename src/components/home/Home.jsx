@@ -25,6 +25,10 @@ const Title = ({ language }) => {
           ? "Full stack web developer"
           : "Desarrollador web full stack"}
       </h2>
+
+      <button className="home__downloadCV">
+        {language === "en" ? "Download CV" : "Descargar CV"}
+      </button>
     </div>
   );
 };

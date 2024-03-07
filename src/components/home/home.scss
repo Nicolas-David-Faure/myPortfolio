@@ -20,6 +20,15 @@
     justify-content: space-around;
   }
 
+
+
+
+  &downloadCV{
+    color: $color1;
+    
+  }
+
+
   &banner {
     background-image: url('../../assets/img/atardecer-perfil.jpg');
     background-position: center;
@@ -35,7 +44,6 @@
     color: $color1;
     text-align: center;
    
-
     h1{
       margin: 0;
       
