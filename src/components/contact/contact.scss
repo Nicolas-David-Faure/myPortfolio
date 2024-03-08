@@ -1,0 +1,15 @@
+@import '../../assets/sass/varibles.scss';
+
+.contact__{
+  &main{
+
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: $color5;
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+}
