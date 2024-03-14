@@ -14,11 +14,18 @@
   
   }
 
+  &container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    background-color: $color3;
+  }
 
   &description{
-    width: 100%;
-  
-
+    width: 50%;
+    height: 15rem;
+    border: 1px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
