@@ -57,6 +57,9 @@ const arrayLogos = [
 export const Aboutme = ({ language }) => {
   return (
     <section className="aboutme__main">
+
+      <div className="aboutme__container">
+      {/* description */}
       <div className="aboutme__description">
         <strong>
           {language === "en"
@@ -64,7 +67,7 @@ export const Aboutme = ({ language }) => {
             : "Soy un desarrollador web full stack, con experiencia en el desarrollo de aplicaciones web . Me encanta aprender nuevas tecnologías y aplicarlas en mis proyectos. Me encanta trabajar en equipo y colaborar con otros desarrolladores."}
         </strong>
       </div>
-
+    {/* services */}
       <div className="aboutme__services">
         <div className="aboutme__services__list">
           <div className="aboutme__service">
@@ -104,6 +107,10 @@ export const Aboutme = ({ language }) => {
           </div>
         </div>
       </div>
+
+      </div>
+
+      
 
 
 

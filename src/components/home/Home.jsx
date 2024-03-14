@@ -2,7 +2,7 @@ import React from "react";
 import "./home.scss";
 import { GithubIcon } from "../../commons/icons/GithubIcon";
 import { LinkedinIcon } from "../../commons/icons/LinkedinIcon";
-
+import { DownloadIcon } from "../../commons/icons/DownloadIcon";
 import { MailIcon } from "../../commons/icons/MailIcon";
 
 export const Home = ({ language }) => {
@@ -26,24 +26,53 @@ const Title = ({ language }) => {
           : "Desarrollador web full stack"}
       </h2>
 
+      <a href="../../../public/Nicolas_Faure_CV_09012024.pdf" download> 
+
+
       <button className="home__downloadCV">
+        <DownloadIcon
+          styles={{
+            height: "1.5rem",
+            width: "1.5rem",
+            fill: "rgba(255, 255, 255, 0.8)",
+          }}
+        />{" "}
         {language === "en" ? "Download CV" : "Descargar CV"}
       </button>
+      </a>
     </div>
   );
 };
 
 const InfoProfile = ({ language }) => {
+
   const iconStyles = {
     height: "4rem",
     width: "4rem",
     fill: "rgba(255, 255, 255, 0.8)",
   };
+
+
+
+
+
   return (
     <div className="home__infoProfile">
-      <GithubIcon styles={iconStyles} />
-      <LinkedinIcon styles={iconStyles} />
-      <MailIcon styles={iconStyles} />
+      <a href="https://github.com/Nicolas-David-Faure" target="_blank">
+
+        <GithubIcon styles={iconStyles} />
+
+      </a>
+      <a href="https://www.linkedin.com/in/nicolas-david-faure-b023ba240/" target="_blank">
+
+      < LinkedinIcon styles={iconStyles} />
+
+      </a>
+      <a href="mailto:nicolas.david.faure@gmail.com" target="_blank">
+
+        <MailIcon styles={iconStyles} />
+
+      </a>
     </div>
   );
 };
