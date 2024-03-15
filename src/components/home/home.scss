@@ -5,7 +5,7 @@
   &container{
     width: 100%;
     min-height: 100vh;
-    background-image: url('../../assets/img/nasa.jpg'); 
+    background-image: url('../../assets/img/undertheocean.jpg'); 
     background-position: center;
     background-size: cover;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
@@ -73,16 +73,22 @@
   &downloadCV{
     border-radius: 3px;
     padding: 1rem 5rem;
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,0.9248074229691877) 0%, rgba(31,28,28,1) 73%);
+    // background: rgb(0,0,0);
+    // background: linear-gradient(0deg, rgba(0,0,0,0.9976365546218487) 0%, rgb(6, 42, 89) 73%);
+    background-color: rgba(33, 33, 70, 0.871);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     margin: 0 auto;
+    transition: ease all .3s;
+    border: none;
+    color: #f2f2f2;
     &:hover{
-      border: 1px solid $color1;
+      
+      background-color: rgba(56, 56, 94, 0.871);
+      
     }
   }
 }

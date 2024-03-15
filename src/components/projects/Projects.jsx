@@ -107,6 +107,10 @@ const ProjectsList = ({ language, project }) => {
 export const Projects = ({ language }) => {
   return (
     <div className="projects__main">
+      <div className="aboutme__title">
+        <h3>{language == "en" ?  "projects" : "proyectos"}</h3>
+      </div>
+
       <div className="projects__container">
         <ul className="projectsList__main">
           {projectsData.map((project, index) => {

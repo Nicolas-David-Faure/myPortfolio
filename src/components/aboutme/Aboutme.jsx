@@ -61,6 +61,9 @@ const arrayLogos = [
 export const Aboutme = ({ language }) => {
   return (
     <section className="aboutme__main">
+        <div className="aboutme__title">
+          <h3>{language === "en"  ? "about me" : "sobre mí" }</h3>
+        </div>
       <div className="aboutme__container">
         {/* description */}
         {/* <div className="aboutme__description">
@@ -73,9 +76,10 @@ export const Aboutme = ({ language }) => {
 
         <AboutmeServices language={language} />
       </div>
-
+      <div className="aboutme__title">
+          <h3>{language === "en"  ? "skills" : "habilidades" }</h3>
+        </div>
       <div className="aboutme__skills">
-        <h2>{language === "en" ? "Skills" : "Habilidades"}</h2>
         <div className="aboutme__skills__container">
           {arrayLogos.map((logo, i) => (
             <div key={i} className="aboutme__skills__item">
@@ -91,7 +95,7 @@ export const Aboutme = ({ language }) => {
 
 const AboutmeServices = ({ language }) => {
  
- console.log(servicesInformation)
+
 
   return (
     <div className="aboutme__services">
