@@ -187,9 +187,10 @@
         flex-direction: column;
         
         .aboutme__service {
-          width: 70%;
+          width: 80%;
           &:nth-child(3) {
-            width:70%;
+            width:80%;
+            height: 400px;
            
           }
         }
@@ -198,6 +199,10 @@
       @media screen and (max-width: 480px) {
         .aboutme__service {
           width: 80%;
+          &:nth-child(3) {
+            width:80%;
+           
+          }
         }
       }
 
