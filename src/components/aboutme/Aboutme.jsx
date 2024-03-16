@@ -5,7 +5,7 @@ import teamworkIcon from "../../assets/img/teamwork.png";
 import frontEndIcon from "../../assets/img/front.png";
 import dbIcon from "../../assets/img/db.png";
 import servicesInformation from '../../mooks/servicesInformation.json'
-
+import aboutmeDescriptionInformation from '../../mooks/aboutmeDescriptionInformation.json'
 
 //logos skills
 //front
@@ -33,6 +33,9 @@ import tsLogo from "../../assets/img/logo-skills/ts.png";
 import gitLogo from "../../assets/img/logo-skills/Git.png";
 import githubLogo from "../../assets/img/logo-skills/Github.png";
 import dockerLogo from "../../assets/img/logo-skills/docker.png";
+//img
+import photoNicolas from "../../assets/img/nicolas-recortado.png";
+
 
 const arrayLogos = [
   { name: "CSS", logo: cssLogo },
@@ -65,15 +68,7 @@ export const Aboutme = ({ language }) => {
           <h3>{language === "en"  ? "about me" : "sobre mí" }</h3>
         </div>
       <div className="aboutme__container">
-        {/* description */}
-        {/* <div className="aboutme__description">
-        <strong>
-          {language === "en"
-            ? "I am a full stack web developer, with experience in web applications development. I love learning new technologies and applying them in my projects. I love working in a team and collaborating with other developers."
-            : "Soy un desarrollador web full stack, con experiencia en el desarrollo de aplicaciones web . Me encanta aprender nuevas tecnologías y aplicarlas en mis proyectos. Me encanta trabajar en equipo y colaborar con otros desarrolladores."}
-        </strong>
-      </div> */}
-
+        <AboutmeDescription language={language} />
         <AboutmeServices language={language} />
       </div>
       <div className="aboutme__title">
@@ -92,6 +87,35 @@ export const Aboutme = ({ language }) => {
     </section>
   );
 };
+
+
+
+
+const AboutmeDescription = ({ language }) => {
+  return (
+    <div className="aboutme__description">
+      <div className="aboutme__description_text">
+        
+        {aboutmeDescriptionInformation[language].map((item, i) => (
+          <div key={i}>
+            
+            <h5>{item.subtitle}</h5>
+            <p>{item.description}</p>
+          </div>
+        ))}
+        
+      </div>
+      <div className="aboutme__description_img">
+        <img src={photoNicolas} alt="Nicolas" />
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
 
 const AboutmeServices = ({ language }) => {
  

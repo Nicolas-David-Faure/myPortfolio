@@ -1,0 +1,66 @@
+{
+  "es": [
+    {
+      "id": "introduccion",
+      "title": "Introducción",
+      "subtitle": "👋 Quién Soy y Qué Hago",
+      "description": "¡Hola! 👋 Soy un desarrollador web full stack con 2 años de experiencia en la industria. Durante este tiempo, he tenido la oportunidad de trabajar en Inside One, una empresa argentina especializada en proyectos que utilizan inteligencia artificial, React y Firebase para resolver problemas y recopilar datos. 🤖"
+    },
+    {
+      "id": "proyectos",
+      "title": "Proyectos",
+      "subtitle": "🌟 Mi Experiencia Laboral",
+      "description": "En Inside One, he participado en una amplia gama de proyectos emocionantes. Por ejemplo, trabajé en el desarrollo de una aplicación para el análisis de sentimientos del usuario, donde recopilamos emociones de los usuarios y las presentamos en métricas y tablas. También colaboré en la creación de una aplicación de entrenamiento basada en documentación adjunta, que permite entrenar a agentes en base a preguntas, mostrando métricas y calificaciones. Además, participé en el diseño y desarrollo de chatbots para crear asistentes virtuales a través de plataformas como WhatsApp y Telegram. 💬"
+    },
+    {
+      "id": "enfoque",
+      "title": "Enfoque",
+      "subtitle": "🎯 Mi Enfoque",
+      "description": "Mi enfoque en el desarrollo web se centra en mantener el código limpio y seguir buenas prácticas. Utilizo tecnologías como Node.js, Express, Nest, Firebase, PostgreSQL y MongoDB para integrar bases de datos de manera segura y eficiente. Además, soy hábil en la creación y maquetación de componentes en React y CSS, así como en la resolución de bugs y la creación de código reutilizable. 🛠️"
+    },
+    {
+      "id": "experiencia",
+      "title": "Experiencia",
+      "subtitle": "🔍 Trayectoria de Aprendizaje",
+      "description": "Mi experiencia en Plataforma 5, donde participé en un riguroso bootcamp de programación de 4 meses y un periodo de aceleración de 3 meses part time, me ha enseñado la importancia del trabajo en equipo, la perseverancia y el aprendizaje continuo. Siempre estoy buscando oportunidades para mejorar mis habilidades y conocimientos en el desarrollo web. Además, me formé de manera autodidacta por un año en FreeCodeCamp en Responsive Web Design, JavaScript Algorithms and Data Structures, y Front End Development Libraries, así como también recibí formación en front-end en Alura Latam."
+    },
+    {
+      "id": "cierre",
+      "title": "Cierre",
+      "subtitle": "🌟 Gracias por Visitar",
+      "description": "¡Gracias por visitar mi portafolio web! Si deseas conocer más sobre mi trabajo o tienes alguna pregunta, no dudes en contactarme. 🌟"
+    }
+  ],
+  "en": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "subtitle": "👋 Who Am I and What I Do",
+      "description": "Hello! 👋 I'm a full stack web developer with 2 years of experience in the industry. During this time, I've had the opportunity to work at Inside One, an Argentine company specialized in projects that use artificial intelligence, React, and Firebase to solve problems and collect data. 🤖"
+    },
+    {
+      "id": "projects",
+      "title": "Projects",
+      "subtitle": "🌟 My Work Experience",
+      "description": "At Inside One, I've been involved in a wide range of exciting projects. For example, I worked on the development of an application for user sentiment analysis, where we collect user emotions and present them in metrics and tables. I also collaborated on the creation of a training application based on attached documentation, which allows training agents based on questions, showing metrics, and ratings. Additionally, I participated in the design and development of chatbots to create virtual assistants through platforms like WhatsApp and Telegram. 💬"
+    },
+    {
+      "id": "focus",
+      "title": "Focus",
+      "subtitle": "🎯 My Focus",
+      "description": "My focus in web development is on keeping code clean and following best practices. I use technologies such as Node.js, Express, Nest, Firebase, PostgreSQL, and MongoDB to integrate databases securely and efficiently. Furthermore, I'm skilled in creating and styling components in React and CSS, as well as bug resolution and reusable code creation. 🛠️"
+    },
+    {
+      "id": "experience",
+      "title": "Experience",
+      "subtitle": "🔍 Learning Journey",
+      "description": "My experience at Plataforma 5, where I participated in a rigorous 4-month programming bootcamp and a 3-month part-time acceleration period, has taught me the importance of teamwork, perseverance, and continuous learning. I'm always looking for opportunities to improve my skills and knowledge in web development. Additionally, I self-taught for a year on FreeCodeCamp in Responsive Web Design, JavaScript Algorithms and Data Structures, and Front End Development Libraries, as well as received front-end training at Alura Latam."
+    },
+    {
+      "id": "closing",
+      "title": "Closing",
+      "subtitle": "🌟 Thanks for Visiting",
+      "description": "Thanks for visiting my portfolio website! If you want to know more about my work or have any questions, feel free to contact me. 🌟"
+    }
+  ]
+}
