@@ -1,64 +1,64 @@
 {
   "en": {
     "frontend": [
-      "Styling web pages using CSS",
-      "Structuring content using HTML",
-      "Developing interactivity using Javascript",
-      "Creating dynamic interfaces with React",
-      "Building efficient applications with Next.js",
-      "Managing global state using Redux",
-      "Enhancing CSS efficiency with Sass",
-      "Designing responsive interfaces with Tailwind CSS"
+      "🎨 Styling web pages using CSS",
+      "🏗️ Structuring content using HTML",
+      "💻 Developing interactivity using Javascript",
+      "🔄 Creating dynamic interfaces with React",
+      "🚀 Building efficient applications with Next.js",
+      "🌐 Managing global state using Redux",
+      "🌈 Enhancing CSS efficiency with Sass",
+      "📱 Designing responsive interfaces with Tailwind CSS"
     ],
     "backend": [
-      "Developing applications using Typescript for robust typing",
-      "Creating web servers with Express to handle HTTP requests",
-      "Integrating Firebase for user authentication and real-time data management",
-      "Implementing NoSQL databases using MongoDB",
-      "Utilizing Node.js to run JavaScript code on the server",
-      "Using relational databases like Postgres to store structured data",
-      "Building scalable applications with Nest.js, a Node.js framework",
-      "Integrating AI technologies like OpenAI for advanced functionalities",
-      "Securing the application by implementing JSON Web Tokens (JWT)",
-      "Containerizing applications with Docker for easy deployment and scalability"
+      "🛠️ Developing applications using Typescript for robust typing",
+      "🔧 Creating web servers with Express to handle HTTP requests",
+      "🔥 Integrating Firebase for user authentication and real-time data management",
+      "💾 Implementing NoSQL databases using MongoDB",
+      "🚀 Utilizing Node.js to run JavaScript code on the server",
+      "🗄️ Using relational databases like Postgres to store structured data",
+      "🌱 Building scalable applications with Nest.js, a Node.js framework",
+      "🤖 Integrating AI technologies like OpenAI for advanced functionalities",
+      "🔒 Securing the application by implementing JSON Web Tokens (JWT)",
+      "🐳 Containerizing applications with Docker for easy deployment and scalability"
     ],
     "teamwork": [
-      "Using Git for version control and collaboration in code",
-      "Managing repositories and collaborating on projects using GitHub",
-      "Creating and collaborating on interface design using Figma",
-      "Organizing and tracking tasks using Trello",
-      "Coordinating projects and assigning tasks using ClickUp"
+      "👥 Using Git for version control and collaboration in code",
+      "🔗 Managing repositories and collaborating on projects using GitHub",
+      "🎨 Creating and collaborating on interface design using Figma",
+      "📝 Organizing and tracking tasks using Trello",
+      "🚀 Coordinating projects and assigning tasks using ClickUp"
     ]
   },
   "es": {
     "frontend": [
-      "Estilización de páginas web con CSS",
-      "Estructuración del contenido utilizando HTML",
-      "Desarrollo de interactividad con Javascript",
-      "Creación de interfaces dinámicas con React",
-      "Construcción de aplicaciones eficientes con Next.js",
-      "Gestión del estado global utilizando Redux",
-      "Mejora de la eficiencia CSS con Sass",
-      "Diseño de interfaces responsivas con Tailwind CSS"
+      "🎨 Estilización de páginas web con CSS",
+      "🏗️ Estructuración del contenido utilizando HTML",
+      "💻 Desarrollo de interactividad con Javascript",
+      "🔄 Creación de interfaces dinámicas con React",
+      "🚀 Construcción de aplicaciones eficientes con Next.js",
+      "🌐 Gestión del estado global utilizando Redux",
+      "🌈 Mejora de la eficiencia CSS con Sass",
+      "📱 Diseño de interfaces responsivas con Tailwind CSS"
     ],
     "backend": [
-      "Desarrollo de aplicaciones utilizando Typescript para una tipificación más robusta",
-      "Creación de servidores web con Express para gestionar las solicitudes HTTP",
-      "Integración de Firebase para la autenticación de usuarios y la gestión de datos en tiempo real",
-      "Implementación de bases de datos NoSQL utilizando MongoDB",
-      "Utilización de Node.js para ejecutar código JavaScript en el servidor",
-      "Uso de bases de datos relacionales como Postgres para almacenar datos estructurados",
-      "Desarrollo de aplicaciones escalables con Nest.js, un framework de Node.js",
-      "Integración de tecnologías de IA como OpenAI para funcionalidades avanzadas",
-      "Seguridad de la aplicación mediante la implementación de JSON Web Tokens (JWT)",
-      "Contenerización de aplicaciones con Docker para una fácil implementación y escalabilidad"
+      "🛠️ Desarrollo de aplicaciones utilizando Typescript para una tipificación más robusta",
+      "🔧 Creación de servidores web con Express para gestionar las solicitudes HTTP",
+      "🔥 Integración de Firebase para la autenticación de usuarios y la gestión de datos en tiempo real",
+      "💾 Implementación de bases de datos NoSQL utilizando MongoDB",
+      "🚀 Utilización de Node.js para ejecutar código JavaScript en el servidor",
+      "🗄️ Uso de bases de datos relacionales como Postgres para almacenar datos estructurados",
+      "🌱 Desarrollo de aplicaciones escalables con Nest.js, un framework de Node.js",
+      "🤖 Integración de tecnologías de IA como OpenAI para funcionalidades avanzadas",
+      "🔒 Seguridad de la aplicación mediante la implementación de JSON Web Tokens (JWT)",
+      "🐳 Contenerización de aplicaciones con Docker para una fácil implementación y escalabilidad"
     ],
     "teamwork": [
-      "Utilización de Git para el control de versiones y colaboración en el código",
-      "Gestión de repositorios y colaboración en proyectos utilizando GitHub",
-      "Creación y colaboración en el diseño de interfaces utilizando Figma",
-      "Organización y seguimiento de tareas utilizando Trello",
-      "Coordinación de proyectos y asignación de tareas utilizando ClickUp"
+      "👥 Utilización de Git para el control de versiones y colaboración en el código",
+      "🔗 Gestión de repositorios y colaboración en proyectos utilizando GitHub",
+      "🎨 Creación y colaboración en el diseño de interfaces utilizando Figma",
+      "📝 Organización y seguimiento de tareas utilizando Trello",
+      "🚀 Coordinación de proyectos y asignación de tareas utilizando ClickUp"
     ]
   }
 }
