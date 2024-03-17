@@ -28,7 +28,7 @@ import postgresLogo from "../../assets/img/logo-skills/postgres.png";
 import nestLogo from "../../assets/img/logo-skills/NestJS.svg";
 import openaiLogo from "../../assets/img/logo-skills/openai.webp";
 import jwtLogo from "../../assets/img/logo-skills/jwt.png";
-import tsLogo from "../../assets/img/logo-skills/ts.png";
+
 //tools
 import gitLogo from "../../assets/img/logo-skills/Git.png";
 import githubLogo from "../../assets/img/logo-skills/Github.png";
@@ -55,7 +55,7 @@ const arrayLogos = [
   { name: "Nest", logo: nestLogo },
   { name: "OpenAI", logo: openaiLogo },
   { name: "JWT", logo: jwtLogo },
-  { name: "Typescript", logo: tsLogo },
+
   { name: "Git", logo: gitLogo },
   { name: "Github", logo: githubLogo },
   { name: "Docker", logo: dockerLogo },
@@ -76,12 +76,21 @@ export const Aboutme = ({ language }) => {
         </div>
       <div className="aboutme__skills">
         <div className="aboutme__skills__container">
-          {arrayLogos.map((logo, i) => (
-            <div key={i} className="aboutme__skills__item">
-              <img src={logo.logo} alt={logo.name} />
-              <p>{logo.name}</p>
-            </div>
-          ))}
+          {arrayLogos.map((logo, i) => 
+            {
+              const isNodeAndDocker = logo.name === "Node.js" || logo.name === "Docker";
+
+           
+              return (
+
+                <div key={i} className="aboutme__skills__item">
+                  <img src={logo.logo} alt={logo.name} className={isNodeAndDocker ? "aboutme__skills__item_isBigger" : ""} />
+                  <p>{logo.name}</p>
+                </div>
+
+              )
+            }
+          )}
         </div>
       </div>
     </section>

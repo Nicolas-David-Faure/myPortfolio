@@ -8,14 +8,15 @@
     top: 100%;
     left: 0;
     z-index: 100;
-    background-color: $color5;
+    background-color: rgb(0, 0, 0);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 10px 0;
     width: 100%;
-    max-height: 300px;
+    
     overflow-y: auto;
     overflow-x: hidden;
+    z-index: 5000;
   }
 
   &ul{

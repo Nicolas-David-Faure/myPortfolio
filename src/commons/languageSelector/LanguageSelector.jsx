@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./languageSelector.scss";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { setLanguage } from "../../store/slice/appBook/languages";
 
 const languageData = {
@@ -12,6 +12,7 @@ const languageData = {
 export const LanguageSelector = ({ language }) => {
   const [dropdown, setDropdown] = useState(false);
   const [isNewLanguage, setIsNewLanguage] = useState(false);
+
 
   const dispatch = useDispatch();
 
@@ -80,15 +81,13 @@ export const LanguageSelector = ({ language }) => {
   );
 };
 
-const LanguageContainer = ({ language }) => {
-  const [screenSize, setScreenSize] = useState(window.innerWidth);
-  window.onresize = () => {
-    setScreenSize(window.innerWidth);
-  };
+const LanguageContainer = ({ language  }) => {
+  
+  const windowWidth = useSelector((state) => state.screenSlice.screenWidth);
 
   const languageData = {
-    es: { title: screenSize > 800 ? "Español" : "Es", flag: "🇪🇸" },
-    en: { title: screenSize > 800 ? "English" : "En", flag: "🇬🇧" },
+    es: { title: windowWidth > 800 ? "Español" : "Es", flag: "🇪🇸" },
+    en: { title: windowWidth > 800 ? "English" : "En", flag: "🇬🇧" },
   };
   return (
     <>

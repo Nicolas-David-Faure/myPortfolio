@@ -32,11 +32,15 @@ export const ActivityBar = ({ language }) => {
 
   // Agrega un listener para el evento de scroll
   useEffect(() => {
-     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [prevScrollY]);
+    if (windowWidth > 768){
+
+ 
+      window.addEventListener('scroll', handleScroll);
+     return () => {
+       window.removeEventListener('scroll', handleScroll);
+     };
+    }
+  }, [prevScrollY , windowWidth]);
 
   return (
     <motion.nav
