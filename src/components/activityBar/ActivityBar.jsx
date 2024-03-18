@@ -84,10 +84,10 @@ const SectionSelector = ({ language , windowWidth , menuDropdownState }) => {
         <p>{language === "es" ? "Inicio" : "Home"}</p>
       </div>
       <div className="activitybar__sectionselector__section">
-        <p>{language === "es" ? "Proyectos" : "Projects"}</p>
+        <p>{language === "es" ? "Sobre mí" : "About me"}</p>
       </div>
       <div className="activitybar__sectionselector__section">
-        <p>{language === "es" ? "Sobre mí" : "About me"}</p>
+        <p>{language === "es" ? "Proyectos" : "Projects"}</p>
       </div>
       <div className="activitybar__sectionselector__section">
         <p>{language === "es" ? "Contacto" : "Contact"}</p>
