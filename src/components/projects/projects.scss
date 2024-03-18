@@ -1,11 +1,11 @@
-@import '../../assets/sass/varibles.scss';
+@import "../../assets/sass/varibles.scss";
 
-.projects__{
-  &main{
+.projects__ {
+  &main {
     width: 100%;
     min-height: 100vh;
     display: flex;
-    
+
     align-items: center;
     flex-direction: column;
     gap: 3rem;
@@ -21,17 +21,11 @@
     gap: 1rem;
     padding: 0;
     margin: 0;
-   
   }
-
-
 }
 
-
-
-.projectsList__{
-  &main{
-  width: 83%;
+.projects__slider {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,202 +33,89 @@
   gap: 1rem;
   padding: 0;
   margin: 0;
- 
-  list-style: none;
- 
-  
-}
+  position: relative;
+  height: 30rem;
 
-&container__title{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  &_arrowbtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5rem;
 
-  z-index: 2;
-  color: #f2f2f2;
-  h2{
-    text-align: start;
-    padding: 0;
-    margin: 0;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 3px;
     cursor: pointer;
-    user-select: none;
-  }
-}
+    transition: all 0.3s;
 
-&item{
-  width: 100%;
+    &_left {
+      right: 1rem;
+    }
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-  
-  margin: 0;  
- 
-  border-radius: 3px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.854);
+    &_right {
+      left: 1rem;
+    }
 
-
-  &__content{
-    width: 90%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    gap: 1rem;
- 
-    margin: 0;
-   
-    @media screen and (min-width: 768px){
-      width: 97%;
+    &:hover {
+      background-color: rgba(213, 213, 213, 0.239);
     }
   }
 
-  &__icon{
-    
+  &_container {
+    width: 80%;
     height: 100%;
     display: flex;
+    overflow: hidden;
+    gap: 1rem;
+    &_card {
+      position: relative;
+      width: calc(100% / 3);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 3px;
+      }
+
+      &_info {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-color: brown;
+        border-radius: 3px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        top: 0;
+      }
+    }
+
+
+
+  }
+
+
+
+  &_selector {
+     
+    display: flex;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    margin: 0;
-    
-  }
-
-
-  &__description{
-
     width: 100%;
-  
-    display: flex;
 
-    flex-direction: column;
-    align-items: center;
-    
- 
-
-   
-
-    &__text{
-      width: 80%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 1rem;
-     
-      margin: 0 auto;
-      text-align: start;
-
-
-      strong{
-        font-size: 1.1rem;
-        color: $color1;
+    &_btn {
+      width: 1.5rem;
+      height: 1rem;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      background-color: rgba(17, 39, 100, 0.63);
+      transition: all 0.3s;
+      &:hover {
+        background-color: rgb(135, 180, 220);
       }
     }
-
-
-    &__container {
-      
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-    }
-
-
-    
- 
-    &__footer{
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 1rem 0;
-      margin: 0;
-      gap: 1rem;
-      height: 4rem;
-
-      button{
-        width: 30%;
-        height: 100%;
-        background-color: $color3;
-        padding: 0;
-        border-radius: 2px;
-      }
-
-    }
-
-    @media screen and (min-width: 768px){
-      flex-direction: row;
-      width: 97%;
-      padding-right: 40px;
-      height: 20rem;
-      &__container {
-        height: 300px;
-      }
-
-      &__footer{
-        width: 100%;
-        
-
-      
-        padding: 0;
-        margin: 0;
-     
-        height: 3rem;
-  
-  
-  
-        button{
-          width: 30%;
-          height: 100%;
-        
-          
-        }
-  
-      }
-
-     }
-
-
-    figcaption{
-      width: 100%;
-      
- 
-      height: fit-content;
-      padding:0;
-
-      img{
-        width: 300px;
-        height: 300px;
-        border-radius: 2px;
-
-        box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-
-        
-      }
-
-
-      @media screen and (min-width: 768px){
-
-        padding: 1rem;
-        
-        img{
-        width: 450px;
-        height: 300px;
-      }
-      
-      }
-    }
-    
   }
 }
-
-
-}
-
-
-
