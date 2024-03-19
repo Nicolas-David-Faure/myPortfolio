@@ -8,7 +8,7 @@ export const ArrowLeftIcon = ({ style }) => {
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      style={{ fill: "rgba(255, 255, 255, 1)", transform: "", msFilter: "" }}
+      style={{ fill: "rgba(255, 255, 255, 1)", transform: "", msFilter: "" , width: "24px", height: "24px", ...style}}
 
     >
       <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
