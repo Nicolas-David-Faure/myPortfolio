@@ -1,0 +1,203 @@
+title : Box-Delivery -> 
+tipo de aplicacion :Fullstack
+Client : [reduxjs toolkit":
+"axios":
+"next":
+docker
+Next
+tailwind css
+Typescript]
+
+//api : [ "bcryptjs"
+"mongoose"
+jwt":
+"swagger-ui-express": "^5.0.0"
+docker
+Typescript
+JWT
+Nest]
+
+year: 2023-2024
+duration: 3 meses
+
+Functionalities
+🔹 MANAGER
+Login
+See schedule line history by date
+See delivery history
+See the activity of the deliverymen
+See the number of packages for each delivery person
+Create packages
+See packages
+Edit packages
+Delete packages
+🔹 DELIVERY
+
+Register
+Login
+Password recovery
+Select packages (maximum 10)
+See pending deliveries
+See delivery history
+Delete delivery history
+Accept delivery declaration
+🔹 OTHER
+
+Session persistence
+Responsive
+Location the delivery person and show him where he is going on the map.
+Points system for parcels delivered and penalties for do not complete of deliveries
+
+colaboradores:
+Victoria Canclini
+Ivan Lucana
+Florencia Martinez
+German Cuevas
+
+------------------------------------------------------------------------------------------------------
+
+OneFeel -> Fullstack
+React
+Firebase
+Firebase functions
+sass
+openai
+redux
+
+colaboradores:
+Martin Ferrando
+Fiama Talavera
+Isidro Molina
+
+decripcion: one feel es una aplicacion web que sirve para realizar analisis de emociones en tiempo real para detectar las emociones de tanto de los agentes como de las personas y tener evaluacion de estos mediante metricas y tablas con actualizaciones en tiempo real .
+
+Funcionalidades:
+Chatbot analisis de emociones en mesajeria
+Metricas
+Vista de tablas emociones
+Vista de tablas agentes
+Filtros
+year: 2023
+duration: 1 meses
+-----------------------------------------------------------------------------------------------
+
+Ewine -> Fullstack
+participantes
+Ivan Lucana
+Florencia Martinez
+Marcos Solis
+
+->Frontend
+	 "framer-motion": "^10.16.4",
+"react": "^18.2.0",
+"react-dom": "^18.2.0",
+"react-redux": "^8.1.2",
+"react-router-dom": "^6.15.0",
+"sass":
+	->Backend
+"express": "^4.18.2",
+"jsonwebtoken": "^9.0.2",
+"morgan": "^1.10.0",
+"nodemailer": "^6.9.5",
+"nodemon": "^3.0.1",
+"pg": "^8.11.3",
+"pg-hstore": "^2.3.4",
+"sequelize": "^6.32.1"
+
+Funcionalidades:
+registro
+Login
+vista de producto
+barra de busqueda
+perfil admin para añadir, quitar y editar productos
+simulacion de compra
+mensaje de al mail al finalizar la compra
+
+Descripcion: E-commerse para venta de vinos rellenar con mas datos
+year: 2023
+duration: 2 semanas
+------------------------------------------------------------------------
+TMDBflix ->fullstack
+participantes : Individual
+client:
+react
+redux
+framer motion
+sass
+
+api:
+express
+jwt
+posgres sql-
+sequilize
+
+funcionalidades:
+Login
+Register
+vista de peliculas en pantalla principal
+barra de busqueda
+seccion de favoritos tanto de TVS Series ,como de Movies
+modal de descripcion de peliculas con recomendaciones de peliculas similares
+posibilidad de ver los trailers
+
+descripcion: TMDBflix es un clon de netflix consumiendo la API de TMDB .
+
+year: 2023
+duration: 1 semana
+
+-------------------------------------------------------------------------
+
+odontologia ->Front end
+techs
+	 React
+	 scss
+	 Framer motion
+	 Redux
+Funcionalidades
+pagina de inicio , about us , contacto
+posibilidad de sacar turnos online
+
+descripcion:
+"Pagina web de odontologia con con posibilidad de sacar turnos online mediante un formulario"
+year: 2023
+duration: 1 mes
+--------------------------------------------------------------------------------
+restaurant buena vida -> Front
+React
+sass
+framer motion
+redux
+
+funcionalidades
+vista de menu de comidas y de bebidas
+posibilidad de hacer una reserva
+
+descripcion:
+"Pagina web de restaurant con con posibilidad de sacar reserva online mediante un formulario"
+year: 2023
+duration: -  
+------------------------------------------------------------------------------------
+
+portafolio 2023
+html
+css
+js
+----------------------------------------------------------------------------------
+Alura Geek
+html
+css
+js
+
+----------------------------------------------------------------------------------
+
+Calculadora-React Public
+Calculadora hecha simple hecha en react
+--------------------------------------------------------------------------------
+
+JuegoDelAhorcado
+Desafío Alura challenge Juego del ahorcado HTML5, CSS3 Y JS.
+
+---------------------------------------------------------------------------------
+
+Challenge-Alura-semana-1.github.io
+Encriptador
