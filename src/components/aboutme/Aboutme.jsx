@@ -128,8 +128,6 @@ const AboutmeDescription = ({ language }) => {
 
 const AboutmeServices = ({ language }) => {
  
-
-
   return (
     <div className="aboutme__services">
       <div className="aboutme__services__list">

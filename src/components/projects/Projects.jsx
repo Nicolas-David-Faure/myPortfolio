@@ -6,88 +6,13 @@ import { AnimatePresence, motion } from "framer-motion";
 //icons
 import { ArrowRightIcon } from "../../commons/icons/ArrowRightIcon";
 import { ArrowLeftIcon } from "../../commons/icons/ArrowLeftIcon";
-//cards
-import photo1 from "./photos_slider/photo_1.jpg";
-import photo2 from "./photos_slider/photo_2.jpg";
-import photo3 from "./photos_slider/photo_3.jpg";
-import photo4 from "./photos_slider/photo_4.jpg";
-import photo5 from "./photos_slider/photo_5.jpg";
-import photo6 from "./photos_slider/photo_6.jpg";
-import photo7 from "./photos_slider/photo_7.jpg";
-import photo8 from "./photos_slider/photo_8.jpg";
-import photo9 from "./photos_slider/photo_9.jpg";
-import photo10 from "./photos_slider/photo_10.jpg";
-import photo11 from "./photos_slider/photo_11.jpg";
-import photo12 from "./photos_slider/photo_12.jpg";
+
 import { useSelector } from "react-redux";
 
-const photosarray = [
-  photo1,
-  photo2,
-  photo3,
-  photo4,
-  photo5,
-  photo6,
-  photo7,
-  photo8,
-  photo9,
-  photo10,
-  photo11,
-  photo12,
-];
 
-const cardsArray = [
-  {
-    img: photo1,
-    id: 1,
-  },
-  {
-    img: photo2,
-    id: 2,
-  },
-  {
-    img: photo3,
-    id: 3,
-  },
-  {
-    img: photo4,
-    id: 4,
-  },
-  {
-    img: photo5,
-    id: 5,
-  },
-  {
-    img: photo6,
-    id: 6,
-  },
-  {
-    img: photo7,
-    id: 7,
-  },
-  {
-    img: photo8,
-    id: 8,
-  },
-  {
-    img: photo9,
-    id: 9,
-  },
-  {
-    img: photo10,
-    id: 10,
-  },
-  {
-    img: photo11,
-    id: 11,
-  },
-  {
-    img: photo12,
-    id: 12,
-  },
+import { infoProjects } from "../../mooks/infoProjects";
 
 
-]
 
 
 
@@ -98,15 +23,17 @@ export const Projects = ({ language }) => {
         <h3>{language == "en" ? "projects" : "proyectos"}</h3>
       </div>
 
-      <ProjectsSlider />
+      <ProjectsSlider language={language} />
     </section>
   );
 };
 
-const ProjectsSlider = ({ language }) => {
+const ProjectsSlider = ({ language  }) => {
+
+  
   const { screenWidth } = useSelector((state) => state.screenSlice);
 
-  const [cards, setCards] = useState(cardsArray);
+  const [cards, setCards] = useState(infoProjects[language]);
   const [currentCards, setCurrentCards] = useState(0);
   const [direction, setDirection] = useState(false);
   const refProjectsSlider = useRef(null);
@@ -117,8 +44,10 @@ const ProjectsSlider = ({ language }) => {
   const cardsDisplayed = cards.slice(currentCards, currentCards + cardsToShow);
 
   
-
-
+  
+  useEffect(() => {
+    setCards(infoProjects[language]);
+  }, [language]);
 
 
 
@@ -162,13 +91,13 @@ const ProjectsSlider = ({ language }) => {
   };
 
   const handleDrag = (event, info) => {
-    console.log(event)
+    console.log(info.point.x)
 
  
-    if (info.point.x >  600) {
+    if (info.point.x >  500) {
       handlePrevCard();
     }
-    if (info.point.x < -400) {
+    if (info.point.x < -300) {
       handleNextCard();
     }
   };
@@ -201,17 +130,18 @@ const ProjectsSlider = ({ language }) => {
         className="projects__slider_container"
         onTap={() => console.log("tapped")}
       >
-        {cardsDisplayed.map((card, i) => {
-          return (
-            <ProjectSliderCard
-              key={uniqueKeyGenerator(i)}
-              img={card.img}
-              screenWidth={screenWidth}
-              direction={direction}
-              
-            />
-          );
-        })}
+   
+          {cardsDisplayed.map((card, i) => {
+            return (
+              <ProjectSliderCard
+                key={uniqueKeyGenerator(i)}
+                screenWidth={screenWidth}
+                direction={direction}
+                infoCard={card}
+              />
+            );
+          })}
+     
       </motion.div>
 
       <ProjectSliderCardSelector cardsToShow={cardsToShow} cardsLength={cardsLength} cardsDisplayed={cardsDisplayed}  cardsDivided={cardsDivided} />
@@ -219,66 +149,44 @@ const ProjectsSlider = ({ language }) => {
   );
 };
 
-const ProjectSliderCard = ({ img, direction  , screenWidth}) => {
+const ProjectSliderCard = ({ infoCard, direction  , screenWidth}) => {
   const [cardIsHovered, setCardIsHovered] = useState(false);
 
-  const animateEntry = {
-    on: {
-      opacity: 1,
-      top: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-    off: {
-      opacity: 0,
-      top: "100%",
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
+
 
   return (
     <motion.div
       layout
       onHoverStart={() => setCardIsHovered(true)}
       onHoverEnd={() => setCardIsHovered(false)}
+  
       className="projects__slider_container_card"
       // onTap={() =>
-      // onTouchEnd={()=>setCardIsHovered(!cardIsHovered)}
+      onTouchEnd={()=>setCardIsHovered(!cardIsHovered)}
     >
       <AnimatePresence>
         <motion.img
-          key={img}
+          key={infoCard.img}
           layout
           initial={{ opacity: 0.2, x: direction ? "200%" : "-200%" }}
           animate={{ opacity: 1, x: 0 }} // Ajustar la duración y la transición
           transition={{
             duration: 0.3,
             ease: "easeInOut",
-            type:  "spring",
-            stiffness: 100,
+            type:  "tween",
+            stiffness:   screenWidth > 600 ? 100: 800,
 
             delay: screenWidth > 600 ? 0: 0.2,
           }}
           exit={{ opacity: 1, x: direction ? "-100%" : "100%" }}
-          src={img}
+          src={infoCard.img}
           alt="project"
         />
       </AnimatePresence>
 
       <AnimatePresence>
         {cardIsHovered && (
-          <motion.div
-            initial={"off"}
-            animate={"on"}
-            exit={"off"}
-            variants={animateEntry}
-            className="projects__slider_container_card_info"
-          >
-            <h2>Hola esta es la info</h2>
-          </motion.div>
+         <ProjectSliderCardInfo infoCard={infoCard} />
         )}
 
         
@@ -286,6 +194,105 @@ const ProjectSliderCard = ({ img, direction  , screenWidth}) => {
     </motion.div>
   );
 };
+  const ProjectSliderCardInfo = ({ infoCard }) => {
+
+
+
+  // {
+  //   "id": 1,
+  //   "title": "Box-Delivery",
+  //   "application_type": "Fullstack",
+  //   "fronted": ["reduxjs toolkit", "next", "docker", "tailwind css", "Typescript"],
+  //   "backend": ["bcryptjs", "mongoose", "jwt", "swagger-ui-express"],
+  //   "year": "2023-2024",
+  //   "duration": "3 meses",
+  //   "functionalities": {
+  //     "GERENTE": [
+  //       "Inicio de sesión",
+  //       "Ver historial de programación por fecha",
+  //       "Ver historial de entregas",
+  //       "Ver actividad de los repartidores",
+  //       "Ver el número de paquetes para cada repartidor",
+  //       "Crear paquetes",
+  //       "Ver paquetes",
+  //       "Editar paquetes",
+  //       "Eliminar paquetes"
+  //     ],
+  //     "REPARTO": [
+  //       "Registro",
+  //       "Inicio de sesión",
+  //       "Recuperación de contraseña",
+  //       "Seleccionar paquetes (máximo 10)",
+  //       "Ver entregas pendientes",
+  //       "Ver historial de entregas",
+  //       "Eliminar historial de entregas",
+  //       "Aceptar declaración de entrega"
+  //     ],
+  //     "OTRO": [
+  //       "Persistencia de sesión",
+  //       "Responsivo",
+  //       "Localizar al repartidor y mostrarle hacia dónde se dirige en el mapa",
+  //       "Sistema de puntos para paquetes entregados y penalizaciones por no completar entregas"
+  //     ]
+  //   },
+  //   "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
+  //   "img": photo1,
+  //   "video": "watch?v=o2HyftVzWe0"
+  // }
+
+
+
+    const animateEntry = {
+      on: {
+        opacity: 1,
+        top: 0,
+        transition: {
+          duration: 0.3,
+        },
+      },
+      off: {
+        opacity: 0,
+        top: "100%",
+        transition: {
+          duration: 0.3,
+        },
+      },
+    };
+  
+    return (
+      <motion.div
+      initial={"off"}
+      animate={"on"}
+      exit={"off"}
+      variants={animateEntry}
+      className="projects__slider_container_card_info"
+    >
+      <div className="projects__slider_container_card_info_video"></div>
+      <div className="projects__slider_container_card_info_description"></div>
+
+
+      {/* <h4>{infoCard.title}</h4>
+      <p>{infoCard.application_type}</p>
+      <p>{infoCard.year}</p>
+      <p>{infoCard.duration}</p>
+      <p>{infoCard.contributors}</p> */}
+      
+    </motion.div>
+    )
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 const ProjectSliderCardSelector = ({ cardsLength , cardsDisplayed  , cardsToShow }) => {
 
   
