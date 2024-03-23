@@ -9,12 +9,8 @@ import { ArrowLeftIcon } from "../../commons/icons/ArrowLeftIcon";
 
 import { useSelector } from "react-redux";
 
-
 import { infoProjects } from "../../mooks/infoProjects";
-
-
-
-
+import ReactPlayer from "react-player";
 
 export const Projects = ({ language }) => {
   return (
@@ -28,9 +24,7 @@ export const Projects = ({ language }) => {
   );
 };
 
-const ProjectsSlider = ({ language  }) => {
-
-  
+const ProjectsSlider = ({ language }) => {
   const { screenWidth } = useSelector((state) => state.screenSlice);
 
   const [cards, setCards] = useState(infoProjects[language]);
@@ -43,13 +37,9 @@ const ProjectsSlider = ({ language  }) => {
   const cardsDivided = Math.ceil(cardsLength / cardsToShow);
   const cardsDisplayed = cards.slice(currentCards, currentCards + cardsToShow);
 
-  
-  
   useEffect(() => {
     setCards(infoProjects[language]);
   }, [language]);
-
-
 
   const handlePrevCard = () => {
     setDirection(false);
@@ -91,10 +81,9 @@ const ProjectsSlider = ({ language  }) => {
   };
 
   const handleDrag = (event, info) => {
-    console.log(info.point.x)
+    console.log(info.point.x);
 
- 
-    if (info.point.x >  500) {
+    if (info.point.x > 500) {
       handlePrevCard();
     }
     if (info.point.x < -300) {
@@ -130,39 +119,39 @@ const ProjectsSlider = ({ language  }) => {
         className="projects__slider_container"
         onTap={() => console.log("tapped")}
       >
-   
-          {cardsDisplayed.map((card, i) => {
-            return (
-              <ProjectSliderCard
-                key={uniqueKeyGenerator(i)}
-                screenWidth={screenWidth}
-                direction={direction}
-                infoCard={card}
-              />
-            );
-          })}
-     
+        {cardsDisplayed.map((card, i) => {
+          return (
+            <ProjectSliderCard
+              key={uniqueKeyGenerator(i)}
+              screenWidth={screenWidth}
+              direction={direction}
+              infoCard={card}
+            />
+          );
+        })}
       </motion.div>
 
-      <ProjectSliderCardSelector cardsToShow={cardsToShow} cardsLength={cardsLength} cardsDisplayed={cardsDisplayed}  cardsDivided={cardsDivided} />
+      <ProjectSliderCardSelector
+        cardsToShow={cardsToShow}
+        cardsLength={cardsLength}
+        cardsDisplayed={cardsDisplayed}
+        cardsDivided={cardsDivided}
+      />
     </div>
   );
 };
 
-const ProjectSliderCard = ({ infoCard, direction  , screenWidth}) => {
+const ProjectSliderCard = ({ infoCard, direction, screenWidth }) => {
   const [cardIsHovered, setCardIsHovered] = useState(false);
-
-
 
   return (
     <motion.div
       layout
       onHoverStart={() => setCardIsHovered(true)}
       onHoverEnd={() => setCardIsHovered(false)}
-  
       className="projects__slider_container_card"
       // onTap={() =>
-      onTouchEnd={()=>setCardIsHovered(!cardIsHovered)}
+      onTouchEnd={() => setCardIsHovered(!cardIsHovered)}
     >
       <AnimatePresence>
         <motion.img
@@ -173,10 +162,10 @@ const ProjectSliderCard = ({ infoCard, direction  , screenWidth}) => {
           transition={{
             duration: 0.3,
             ease: "easeInOut",
-            type:  "tween",
-            stiffness:   screenWidth > 600 ? 100: 800,
+            type: "tween",
+            stiffness: screenWidth > 600 ? 100 : 800,
 
-            delay: screenWidth > 600 ? 0: 0.2,
+            delay: screenWidth > 600 ? 0 : 0.2,
           }}
           exit={{ opacity: 1, x: direction ? "-100%" : "100%" }}
           src={infoCard.img}
@@ -185,122 +174,90 @@ const ProjectSliderCard = ({ infoCard, direction  , screenWidth}) => {
       </AnimatePresence>
 
       <AnimatePresence>
-        {cardIsHovered && (
-         <ProjectSliderCardInfo infoCard={infoCard} />
-        )}
-
-        
+        {cardIsHovered && <ProjectSliderCardInfo infoCard={infoCard} />}
       </AnimatePresence>
     </motion.div>
   );
 };
-  const ProjectSliderCardInfo = ({ infoCard }) => {
+const ProjectSliderCardInfo = ({ infoCard }) => {
+  const {
+    title,
+    application_type,
+    fronted,
+    //algunas apps no tienen backend
+    backend,
+    year,
+    
+    duration,
+    //functionalities puede ser un array o un objeto
+    functionalities,
+    contributors,
+  } = infoCard;
 
-
-
-  // {
-  //   "id": 1,
-  //   "title": "Box-Delivery",
-  //   "application_type": "Fullstack",
-  //   "fronted": ["reduxjs toolkit", "next", "docker", "tailwind css", "Typescript"],
-  //   "backend": ["bcryptjs", "mongoose", "jwt", "swagger-ui-express"],
-  //   "year": "2023-2024",
-  //   "duration": "3 meses",
-  //   "functionalities": {
-  //     "GERENTE": [
-  //       "Inicio de sesión",
-  //       "Ver historial de programación por fecha",
-  //       "Ver historial de entregas",
-  //       "Ver actividad de los repartidores",
-  //       "Ver el número de paquetes para cada repartidor",
-  //       "Crear paquetes",
-  //       "Ver paquetes",
-  //       "Editar paquetes",
-  //       "Eliminar paquetes"
-  //     ],
-  //     "REPARTO": [
-  //       "Registro",
-  //       "Inicio de sesión",
-  //       "Recuperación de contraseña",
-  //       "Seleccionar paquetes (máximo 10)",
-  //       "Ver entregas pendientes",
-  //       "Ver historial de entregas",
-  //       "Eliminar historial de entregas",
-  //       "Aceptar declaración de entrega"
-  //     ],
-  //     "OTRO": [
-  //       "Persistencia de sesión",
-  //       "Responsivo",
-  //       "Localizar al repartidor y mostrarle hacia dónde se dirige en el mapa",
-  //       "Sistema de puntos para paquetes entregados y penalizaciones por no completar entregas"
-  //     ]
-  //   },
-  //   "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
-  //   "img": photo1,
-  //   "video": "watch?v=o2HyftVzWe0"
-  // }
-
-
-
-    const animateEntry = {
-      on: {
-        opacity: 1,
-        top: 0,
-        transition: {
-          duration: 0.3,
-        },
+  const animateEntry = {
+    on: {
+      opacity: 1,
+      top: 0,
+      transition: {
+        duration: 0.3,
       },
-      off: {
-        opacity: 0,
-        top: "100%",
-        transition: {
-          duration: 0.3,
-        },
+    },
+    off: {
+      opacity: 0,
+      top: "100%",
+      transition: {
+        duration: 0.3,
       },
-    };
-  
-    return (
-      <motion.div
+    },
+  };
+
+  return (
+    <motion.div
       initial={"off"}
       animate={"on"}
       exit={"off"}
       variants={animateEntry}
       className="projects__slider_container_card_info"
     >
-      <div className="projects__slider_container_card_info_video"></div>
-      <div className="projects__slider_container_card_info_description"></div>
-
-
-      {/* <h4>{infoCard.title}</h4>
-      <p>{infoCard.application_type}</p>
-      <p>{infoCard.year}</p>
-      <p>{infoCard.duration}</p>
-      <p>{infoCard.contributors}</p> */}
-      
+      <div className="projects__slider_container_card_info_video">
+        <ReactPlayer
+          volume={50}
+          controls={true}
+          playing={true}
+          width={"100%"}
+          height={"100%"}
+          url={`https://www.youtube.com/${infoCard.video}`}
+        />
+      </div>
+      <div className="projects__slider_container_card_info_description">
+        <h4 className="projects__slider_container_card_info_description__title">
+          {infoCard.title}
+        </h4>
+        <p>{infoCard.application_type}</p>
+        <p>{infoCard.year}</p>
+        <p>{infoCard.duration}</p>
+        <p>{infoCard.contributors}</p>
+      </div>
     </motion.div>
-    )
+  );
+};
 
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-const ProjectSliderCardSelector = ({ cardsLength , cardsDisplayed  , cardsToShow }) => {
-
-  
-
+const ProjectSliderCardSelector = ({
+  cardsLength,
+  cardsDisplayed,
+  cardsToShow,
+}) => {
   return (
     <div className="projects__slider_selector ">
       {Array.from({ length: cardsLength }, (card, i) => (
-        <div className={`projects__slider_selector_btn ${cardsDisplayed.find(card  =>  card.id -1 === i  ) ? 'projects__slider_selector_btn_selected': '' } `} key={i * 1235}></div>
+        <div
+          className={`projects__slider_selector_btn ${
+            cardsDisplayed.find((card) => card.id - 1 === i)
+              ? "projects__slider_selector_btn_selected"
+              : ""
+          } `}
+          key={i * 1235}
+        ></div>
       ))}
     </div>
   );

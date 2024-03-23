@@ -5,6 +5,13 @@ import photo3 from "../assets/img/photos_slider/photo_3.jpg";
 import photo4 from "../assets/img/photos_slider/photo_4.jpg";
 import photo5 from "../assets/img/photos_slider/photo_5.jpg";
 import photo6 from "../assets/img/photos_slider/photo_6.jpg";
+import ewineCover from "../assets/img/photos_slider/e-wine.jpeg";
+import oneFeelCover from "../assets/img/photos_slider/oneFeel.jpeg";
+import boxDeliveryCover from "../assets/img/photos_slider/boxDelivery.jpeg";
+import tmdbflixCover from "../assets/img/photos_slider/tmdbflix.jpg";
+import odontologiaCover from "../assets/img/photos_slider/odontologia.jpeg";
+
+import restaurantBuenaVida from "../assets/img/photos_slider/restaurantBuenaVida.jpeg";
 // import photo7 from "../assets/img/photos_slider/photo_7.jpg";
 // import photo8 from "../assets/img/photos_slider/photo_8.jpg";
 // import photo9 from "../assets/img/photos_slider/photo_9.jpg";
@@ -54,7 +61,7 @@ export const infoProjects = {
         ]
       },
       "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
-      "img": photo1,
+      "img": boxDeliveryCover,
       "video": "watch?v=o2HyftVzWe0"
     },
     {
@@ -74,7 +81,7 @@ export const infoProjects = {
       ],
       "year": "2023",
       "duration": "1 mes",
-      "img": photo2,
+      "img": oneFeelCover,
       "video": "watch?v=sa8Znjr6uRc"
     },
     {
@@ -96,7 +103,7 @@ export const infoProjects = {
       ],
       "year": "2023",
       "duration": "2 semanas",
-      "img": photo3,
+      "img": ewineCover,
       "video": "watch?v=SUJLN86AfV8"
     },
     {
@@ -118,7 +125,7 @@ export const infoProjects = {
       "descripcion": "TMDBflix es un clon de Netflix que consume la API de TMDB.",
       "year": "2023",
       "duration": "1 semana",
-      "img": photo4,
+      "img": tmdbflixCover,
       "video": "watch?v=3Z1c3Zt3y9E"
     },
     {
@@ -136,7 +143,7 @@ export const infoProjects = {
       "descripcion": "Página web de odontología con posibilidad de sacar turnos online mediante un formulario.",
       "year": "2023",
       "duration": "1 mes",
-      "img": photo5,
+      "img": odontologiaCover,
       "video": "watch?v=3Z1c3Zt3y9E"
     },
     {
@@ -152,7 +159,7 @@ export const infoProjects = {
       "descripcion": "Página web de restaurante con posibilidad de sacar reserva online mediante un formulario.",
       "year": "2023",
       "duration": "-",
-      "img": photo6,
+      "img": restaurantBuenaVida,
       "video": "watch?v=3Z1c3Zt3y9E"
     }
   ],
@@ -195,7 +202,7 @@ export const infoProjects = {
         ]
       },
       "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
-      "img": photo1,
+      "img": boxDeliveryCover,
       "video": "watch?v=o2HyftVzWe0"
     },
     {
@@ -215,7 +222,7 @@ export const infoProjects = {
       ],
       "year": "2023",
       "duration": "1 month",
-      "img": photo2,
+      "img": oneFeelCover,
       "video": "watch?v=sa8Znjr6uRc"
     },
     {
@@ -237,7 +244,7 @@ export const infoProjects = {
       ],
       "year": "2023",
       "duration": "2 weeks",
-      "img":  photo3,
+      "img":  ewineCover,
       "video":  "watch?v=SUJLN86AfV8"
     },
     {
@@ -259,7 +266,7 @@ export const infoProjects = {
       "description": "TMDBflix is a clone of Netflix consuming the TMDB API.",
       "year": "2023",
       "duration": "1 week",
-      "img": photo4,
+      "img": tmdbflixCover,
       "video": "watch?v=3Z1c3Zt3y9E"
     },
     {
@@ -277,7 +284,7 @@ export const infoProjects = {
       "description": "Dentistry website with the ability to schedule appointments online through a form.",
       "year": "2023",
       "duration": "1 month",
-      "img": photo5,
+      "img": odontologiaCover,
       "video": "watch?v=3Z1c3Zt3y9E"
     },
     {
@@ -293,7 +300,7 @@ export const infoProjects = {
       "description": "Restaurant website with the ability to make a reservation online through a form.",
       "year": "2023",
       "duration": "-",
-      "img": photo6,
+      "img": restaurantBuenaVida,
       "video": "watch?v=3Z1c3Zt3y9E"
     }
   ]
