@@ -126,6 +126,7 @@ const ProjectsSlider = ({ language }) => {
               screenWidth={screenWidth}
               direction={direction}
               infoCard={card}
+              language={language}
             />
           );
         })}
@@ -141,7 +142,7 @@ const ProjectsSlider = ({ language }) => {
   );
 };
 
-const ProjectSliderCard = ({ infoCard, direction, screenWidth }) => {
+const ProjectSliderCard = ({ infoCard, direction, screenWidth , language }) => {
   const [cardIsHovered, setCardIsHovered] = useState(false);
 
   return (
@@ -174,20 +175,20 @@ const ProjectSliderCard = ({ infoCard, direction, screenWidth }) => {
       </AnimatePresence>
 
       <AnimatePresence>
-        {cardIsHovered && <ProjectSliderCardInfo infoCard={infoCard} />}
+        {cardIsHovered && <ProjectSliderCardInfo infoCard={infoCard}  language={language}/>}
       </AnimatePresence>
     </motion.div>
   );
 };
-const ProjectSliderCardInfo = ({ infoCard }) => {
+const ProjectSliderCardInfo = ({ infoCard , language}) => {
   const {
     title,
     application_type,
-    fronted,
+    frontend,
     //algunas apps no tienen backend
     backend,
     year,
-    
+    description,
     duration,
     //functionalities puede ser un array o un objeto
     functionalities,
@@ -208,9 +209,12 @@ const ProjectSliderCardInfo = ({ infoCard }) => {
       transition: {
         duration: 0.3,
       },
+
     },
   };
 
+
+console.log(infoCard)
   return (
     <motion.div
       initial={"off"}
@@ -230,13 +234,41 @@ const ProjectSliderCardInfo = ({ infoCard }) => {
         />
       </div>
       <div className="projects__slider_container_card_info_description">
-        <h4 className="projects__slider_container_card_info_description__title">
-          {infoCard.title}
-        </h4>
-        <p>{infoCard.application_type}</p>
-        <p>{infoCard.year}</p>
-        <p>{infoCard.duration}</p>
-        <p>{infoCard.contributors}</p>
+        <div className="projects__slider_container_card_info_description_title">
+            <h4 className="">
+              {title}
+            </h4>
+            <p>{year}</p>
+        </div>
+        <div className="projects__slider_container_card_info_description_info">
+
+          <p>{infoCard.description}</p>
+          {infoCard.contributors ? <>
+          
+          
+            <h3>{language === "en" ? "contributors" : "participantes"}</h3>
+            <p>{infoCard.contributors}</p>
+          
+          </>:   <h5>{language === "en" ? "Individual project" : "proyecto individual"}</h5> }
+
+
+
+          <h3>{language === "en" ? "Technologies" : "Tecnologías"}</h3>
+          <div className="projects__slider_container_card_info_description_techs">
+            <div className="projects__slider_container_card_info_description_techs_front">
+              <h5>Frontend</h5>
+              {frontend.map((tech, i) => (
+                <div key={i}>{tech}</div>
+              ))}
+            </div>
+            <div className="projects__slider_container_card_info_description_techs_back">
+              <h5>Backend</h5>
+              {backend.map((tech, i) => (
+                <div key={i}>{tech}</div>
+              ))}
+            </div>
+            </div>
+        </div>
       </div>
     </motion.div>
   );

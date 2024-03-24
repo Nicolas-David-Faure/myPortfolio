@@ -60,6 +60,7 @@ export const infoProjects = {
           "Sistema de puntos para paquetes entregados y penalizaciones por no completar entregas"
         ]
       },
+      "description": "Box-Delivery es una aplicación web que sirve para gestionar la entrega de paquetes.",
       "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
       "img": boxDeliveryCover,
       "video": "watch?v=o2HyftVzWe0"
@@ -71,7 +72,7 @@ export const infoProjects = {
       "frontend": ["React", "Firebase", "Sass", "Redux"],
       "backend": ["Firebase functions", "OpenAI"],
       "contributors": ["Martin Ferrando", "Fiama Talavera", "Isidro Molina"],
-      "descripcion": "OneFeel es una aplicación web que sirve para realizar análisis de emociones en tiempo real para detectar las emociones tanto de los agentes como de las personas y tener evaluación de estos mediante métricas y tablas con actualizaciones en tiempo real.",
+      "description": "OneFeel es una aplicación web que sirve para realizar análisis de emociones en tiempo real para detectar las emociones tanto de los agentes como de las personas y tener evaluación de estos mediante métricas y tablas con actualizaciones en tiempo real.",
       "functionalities": [
         "Chatbot análisis de emociones en mensajería",
         "Métricas",
@@ -91,7 +92,7 @@ export const infoProjects = {
       "frontend": ["framer-motion", "react", "react-dom", "react-redux", "react-router-dom", "sass"],
       "backend": ["express", "jsonwebtoken", "morgan", "nodemailer", "nodemon", "pg", "pg-hstore", "sequelize"],
       "contributors": ["Ivan Lucana", "Florencia Martinez", "Marcos Solis"],
-      "descripcion": "Ewine es un E-commerce para venta de vinos.",
+      "description": "Ewine es un E-commerce para venta de vinos.",
       "functionalities": [
         "Registro",
         "Login",
@@ -122,7 +123,7 @@ export const infoProjects = {
         "Modal de descripción de películas con recomendaciones de películas similares",
         "Posibilidad de ver trailers"
       ],
-      "descripcion": "TMDBflix es un clon de Netflix que consume la API de TMDB.",
+      "description": "TMDBflix es un clon de Netflix que consume la API de TMDB.",
       "year": "2023",
       "duration": "1 semana",
       "img": tmdbflixCover,
@@ -140,7 +141,7 @@ export const infoProjects = {
         "Contacto",
         "Posibilidad de sacar turnos online"
       ],
-      "descripcion": "Página web de odontología con posibilidad de sacar turnos online mediante un formulario.",
+      "description": "Página web de odontología con posibilidad de sacar turnos online mediante un formulario.",
       "year": "2023",
       "duration": "1 mes",
       "img": odontologiaCover,
@@ -156,7 +157,7 @@ export const infoProjects = {
         "Vista de menú de comidas y bebidas",
         "Posibilidad de hacer una reserva"
       ],
-      "descripcion": "Página web de restaurante con posibilidad de sacar reserva online mediante un formulario.",
+      "description": "Página web de restaurante con posibilidad de sacar reserva online mediante un formulario.",
       "year": "2023",
       "duration": "-",
       "img": restaurantBuenaVida,
@@ -201,6 +202,7 @@ export const infoProjects = {
           "Points system for parcels delivered and penalties for not completing deliveries"
         ]
       },
+      "description": "Box-Delivery is a web application used to manage the delivery of packages.",
       "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
       "img": boxDeliveryCover,
       "video": "watch?v=o2HyftVzWe0"
