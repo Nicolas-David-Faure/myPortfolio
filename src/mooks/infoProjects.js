@@ -1,10 +1,5 @@
 //cards
-import photo1 from "../assets/img/photos_slider/photo_1.jpg";
-import photo2 from "../assets/img/photos_slider/photo_2.jpg";
-import photo3 from "../assets/img/photos_slider/photo_3.jpg";
-import photo4 from "../assets/img/photos_slider/photo_4.jpg";
-import photo5 from "../assets/img/photos_slider/photo_5.jpg";
-import photo6 from "../assets/img/photos_slider/photo_6.jpg";
+
 import ewineCover from "../assets/img/photos_slider/e-wine.jpeg";
 import oneFeelCover from "../assets/img/photos_slider/oneFeel.jpeg";
 import boxDeliveryCover from "../assets/img/photos_slider/boxDelivery.jpeg";
@@ -12,12 +7,9 @@ import tmdbflixCover from "../assets/img/photos_slider/tmdbflix.jpg";
 import odontologiaCover from "../assets/img/photos_slider/odontologia.jpeg";
 
 import restaurantBuenaVida from "../assets/img/photos_slider/restaurantBuenaVida.jpeg";
-// import photo7 from "../assets/img/photos_slider/photo_7.jpg";
-// import photo8 from "../assets/img/photos_slider/photo_8.jpg";
-// import photo9 from "../assets/img/photos_slider/photo_9.jpg";
-// import photo10 from "../assets/img/photos_slider/photo_10.jpg";
-// import photo11 from "../assets/img/photos_slider/photo_11.jpg";
-// import photo12 from "../assets/img/photos_slider/photo_12.jpg";
+
+
+
 
 
 
@@ -27,8 +19,7 @@ export const infoProjects = {
       "id": 1,
       "title": "Box-Delivery",
       "application_type": "Fullstack",
-      "fronted": ["reduxjs toolkit", "axios", "next", "docker", "tailwind css", "Typescript"],
-      "backend": ["bcryptjs", "mongoose", "jwt", "swagger-ui-express"],
+      "techs": [ 5 , 6 , 8 , 20 , 9 ,  12 , 13 , 17],    
       "year": "2023-2024",
       "duration": "3 meses",
       "functionalities": {
@@ -69,8 +60,8 @@ export const infoProjects = {
       "id": 2,
       "title": "OneFeel",
       "application_type": "Fullstack",
-      "frontend": ["React", "Firebase", "Sass", "Redux"],
-      "backend": ["Firebase functions", "OpenAI"],
+      "techs": [ 4 , 11 , 7 , 6 , 16],
+
       "contributors": ["Martin Ferrando", "Fiama Talavera", "Isidro Molina"],
       "description": "OneFeel es una aplicación web que sirve para realizar análisis de emociones en tiempo real para detectar las emociones tanto de los agentes como de las personas y tener evaluación de estos mediante métricas y tablas con actualizaciones en tiempo real.",
       "functionalities": [
@@ -89,8 +80,7 @@ export const infoProjects = {
       "id": 3,
       "title": "Ewine",
       "application_type": "Fullstack",
-      "frontend": ["framer-motion", "react", "react-dom", "react-redux", "react-router-dom", "sass"],
-      "backend": ["express", "jsonwebtoken", "morgan", "nodemailer", "nodemon", "pg", "pg-hstore", "sequelize"],
+      "techs": [ 4  , 7 , 6 ,  21, 3, 10, 17, 14, 22],
       "contributors": ["Ivan Lucana", "Florencia Martinez", "Marcos Solis"],
       "description": "Ewine es un E-commerce para venta de vinos.",
       "functionalities": [
@@ -112,8 +102,7 @@ export const infoProjects = {
       "title": "TMDBflix",
       "application_type": "Fullstack",
       "participantes": ["Individual"],
-      "fronted": ["react", "redux", "framer motion", "sass"],
-      "backend": ["express", "jwt", "posgres sql", "sequelize"],
+      "techs": [4,  7, 6, 21, 3, 10, 17, 14, 22],
       "functionalities": [
         "Login",
         "Registro",
@@ -133,8 +122,8 @@ export const infoProjects = {
       "id": 5,
       "title": "Odontología",
       "application_type": "Frontend",
-      "frontend": ["React", "SCSS", "Framer motion", "Redux"],
-      "backend": [],
+      "techs": [4,  7, 6, 21,3],
+
       "functionalities": [
         "Página de inicio",
         "Acerca de nosotros",
@@ -151,8 +140,8 @@ export const infoProjects = {
       "id": 6,
       "title": "Restaurant Buena Vida",
       "application_type": "Frontend",
-      "frontend": ["React", "Sass", "Framer motion", "Redux"],
-      "backend": [],
+      "techs": [4,  7, 6, 21,3],
+
       "functionalities": [
         "Vista de menú de comidas y bebidas",
         "Posibilidad de hacer una reserva"
@@ -169,8 +158,7 @@ export const infoProjects = {
       "id": 1,
       "title": "Box-Delivery",
       "application_type": "Fullstack",
-      "frontend": ["reduxjs toolkit", "axios", "next", "docker", "tailwind css", "Typescript"],
-      "backend": ["bcryptjs", "mongoose", "jwt", "swagger-ui-express"],
+      "techs": [ 5 , 6 , 8 , 20 , 9 ,  12 , 13 , 17],    
       "year": "2023-2024",
       "duration": "3 months",
       "functionalities": {
@@ -211,8 +199,8 @@ export const infoProjects = {
       "id": 2,
       "title": "OneFeel",
       "application_type": "Fullstack",
-      "frontend": ["React", "Firebase", "Sass", "Redux"],
-      "backend": ["Firebase functions", "OpenAI"],
+      "techs": [ 4 , 11 , 7 , 6 , 16],
+
       "contributors": ["Martin Ferrando", "Fiama Talavera", "Isidro Molina"],
       "description": "OneFeel is a web application used to perform real-time emotion analysis to detect the emotions of both agents and individuals, and to evaluate them through metrics and tables with real-time updates.",
       "functionalities": [
@@ -231,8 +219,7 @@ export const infoProjects = {
       "id": 3,
       "title": "Ewine",
       "application_type": "Fullstack",
-      "frontend": ["framer-motion", "react", "react-dom", "react-redux", "react-router-dom", "sass"],
-      "backend": ["express", "jsonwebtoken", "morgan", "nodemailer", "nodemon", "pg", "pg-hstore", "sequelize"],
+      "techs": [ 4  , 7 , 6 ,  21, 3, 10, 17, 14, 22],
       "contributors": ["Ivan Lucana", "Florencia Martinez", "Marcos Solis"],
       "description": "Ewine is an E-commerce for wine sales.",
       "functionalities": [
@@ -254,8 +241,7 @@ export const infoProjects = {
       "title": "TMDBflix",
       "application_type": "Fullstack",
       "participants": ["Individual"],
-      "client": ["react", "redux", "framer motion", "sass"],
-      "api": ["express", "jwt", "posgres sql", "sequelize"],
+      "techs": [4,  7, 6, 21, 3, 10, 17, 14, 22],
       "functionalities": [
         "Login",
         "Register",
@@ -275,8 +261,8 @@ export const infoProjects = {
       "id": 5,
       "title": "Dentistry",
       "application_type": "Frontend",
-      "frontend": ["React", "SCSS", "Framer motion", "Redux"],
-      "backend": [],
+      "techs": [4,  7, 6, 21,3],
+
       "functionalities": [
         "Home page",
         "About us",
@@ -293,8 +279,9 @@ export const infoProjects = {
       "id": 6,
       "title": "Restaurant Buena Vida",
       "application_type": "Frontend",
-      "frontend": ["React", "Sass", "Framer motion", "Redux"],
-      "backend": [],
+      "techs": [4,  7, 6, 21,3],
+
+     
       "functionalities": [
         "View menu of food and drinks",
         "Ability to make a reservation"
