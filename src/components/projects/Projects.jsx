@@ -12,6 +12,9 @@ import { useSelector } from "react-redux";
 import { infoProjects } from "../../mooks/infoProjects";
 import ReactPlayer from "react-player";
 
+//logos tachs
+import { arrayLogos } from "../../mooks/logosSkill";
+
 export const Projects = ({ language }) => {
   return (
     <section className="projects__main">
@@ -142,17 +145,17 @@ const ProjectsSlider = ({ language }) => {
   );
 };
 
-const ProjectSliderCard = ({ infoCard, direction, screenWidth , language }) => {
-  const [cardIsHovered, setCardIsHovered] = useState(false);
+const ProjectSliderCard = ({ infoCard, direction, screenWidth, language }) => {
+  const [cardIsHovered, setCardIsHovered] = useState(true);
 
   return (
     <motion.div
       layout
-      onHoverStart={() => setCardIsHovered(true)}
-      onHoverEnd={() => setCardIsHovered(false)}
+      // onHoverStart={() => setCardIsHovered(true)}
+      // onHoverEnd={() => setCardIsHovered(false)}
       className="projects__slider_container_card"
       // onTap={() =>
-      onTouchEnd={() => setCardIsHovered(!cardIsHovered)}
+      // onTouchEnd={() => setCardIsHovered(!cardIsHovered)}
     >
       <AnimatePresence>
         <motion.img
@@ -175,12 +178,14 @@ const ProjectSliderCard = ({ infoCard, direction, screenWidth , language }) => {
       </AnimatePresence>
 
       <AnimatePresence>
-        {cardIsHovered && <ProjectSliderCardInfo infoCard={infoCard}  language={language}/>}
+        {cardIsHovered && (
+          <ProjectSliderCardInfo infoCard={infoCard} language={language} />
+        )}
       </AnimatePresence>
     </motion.div>
   );
 };
-const ProjectSliderCardInfo = ({ infoCard , language}) => {
+const ProjectSliderCardInfo = ({ infoCard, language }) => {
   const {
     title,
     application_type,
@@ -209,12 +214,31 @@ const ProjectSliderCardInfo = ({ infoCard , language}) => {
       transition: {
         duration: 0.3,
       },
-
     },
   };
 
+  const logosFiltered = arrayLogos.filter((logo) =>
+    infoCard.techs.includes(logo.id)
+  );
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-console.log(infoCard)
+  let logosFilteredSlice = logosFiltered.slice(currentIndex, currentIndex + 3);
+
+  if (logosFilteredSlice.length < 3) {
+    logosFilteredSlice = [
+      ...logosFilteredSlice,
+      ...logosFiltered.slice(0, 3 - logosFilteredSlice.length),
+    ];
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % logosFiltered.length);
+    }, 4000); // Cambia el intervalo según tus necesidades
+
+    return () => clearInterval(interval);
+  }, [logosFilteredSlice]);
+
   return (
     <motion.div
       initial={"off"}
@@ -235,39 +259,82 @@ console.log(infoCard)
       </div>
       <div className="projects__slider_container_card_info_description">
         <div className="projects__slider_container_card_info_description_title">
-            <h4 className="">
-              {title}
-            </h4>
-            <p>{year}</p>
+          <h4 className="">{title}</h4>
+          <p>{year}</p>
         </div>
         <div className="projects__slider_container_card_info_description_info">
+          <div className="projects__slider_container_card_info_description_info_techs">
+            <AnimatePresence />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="projects__slider_container_card_info_description_info_techs_carousel"
+            >
+              <AnimatePresence>
+                {logosFilteredSlice.map(({ logo ,  id}, i) => {
 
-          <p>{infoCard.description}</p>
-          {infoCard.contributors ? <>
-          
-          
-            <h3>{language === "en" ? "contributors" : "participantes"}</h3>
-            <p>{infoCard.contributors}</p>
-          
-          </>:   <h5>{language === "en" ? "Individual project" : "proyecto individual"}</h5> }
+              
+                  return (
+                    <motion.span
+                      layout
+                      key={i}
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: [0, 0.5, 1],
+                       
+                        
+                        
+                        transition: {
+                          duration: 2,
+                          delay: i * 0.1,
+                          repeat: Infinity,
+                          repeatType: "reverse",
+                        },
+                      }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <motion.img
+                        style={{ width: id === 8 ? 75 : "100%" } }
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        layout
+                        key={i}
+                        alt={`Image ${i}`}
+                        src={logo}
+                      />
+                    </motion.span>
+                  );
+                })}
+              </AnimatePresence>
+            </motion.div>
+            <AnimatePresence />
 
-
-
-          <h3>{language === "en" ? "Technologies" : "Tecnologías"}</h3>
-          <div className="projects__slider_container_card_info_description_techs">
-            <div className="projects__slider_container_card_info_description_techs_front">
-              <h5>Frontend</h5>
-              {frontend.map((tech, i) => (
+            {/* <div className="projects__slider_container_card_info_description_techs_front"> */}
+            {/* <h5>Frontend</h5>
+              {infoCard.frontend?.map((tech, i) => (
                 <div key={i}>{tech}</div>
               ))}
             </div>
             <div className="projects__slider_container_card_info_description_techs_back">
               <h5>Backend</h5>
-              {backend.map((tech, i) => (
-                <div key={i}>{tech}</div>
-              ))}
-            </div>
-            </div>
+              {infoCard.backend.length &&
+                infoCard.backend?.map((tech, i) => <div key={i}>{tech}</div>)}
+            </div> */}
+          </div>
+
+          <p>{infoCard.description}</p>
+          {infoCard.contributors ? (
+            <>
+              <h3>{language === "en" ? "contributors" : "participantes"}</h3>
+              <p>{infoCard.contributors}</p>
+            </>
+          ) : (
+            <h5>
+              {language === "en" ? "Individual project" : "proyecto individual"}
+            </h5>
+          )}
         </div>
       </div>
     </motion.div>
