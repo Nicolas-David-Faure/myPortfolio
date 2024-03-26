@@ -10,9 +10,6 @@ import restaurantBuenaVida from "../assets/img/photos_slider/restaurantBuenaVida
 
 
 
-
-
-
 export const infoProjects = {
   "es": [
     {

@@ -146,16 +146,16 @@ const ProjectsSlider = ({ language }) => {
 };
 
 const ProjectSliderCard = ({ infoCard, direction, screenWidth, language }) => {
-  const [cardIsHovered, setCardIsHovered] = useState(true);
+  const [cardIsHovered, setCardIsHovered] = useState(false);
 
   return (
     <motion.div
       layout
-      // onHoverStart={() => setCardIsHovered(true)}
-      // onHoverEnd={() => setCardIsHovered(false)}
+      onHoverStart={() => setCardIsHovered(true)}
+      onHoverEnd={() => setCardIsHovered(false)}
       className="projects__slider_container_card"
       // onTap={() =>
-      // onTouchEnd={() => setCardIsHovered(!cardIsHovered)}
+      onTouchEnd={() => setCardIsHovered(!cardIsHovered)}
     >
       <AnimatePresence>
         <motion.img
@@ -186,20 +186,10 @@ const ProjectSliderCard = ({ infoCard, direction, screenWidth, language }) => {
   );
 };
 const ProjectSliderCardInfo = ({ infoCard, language }) => {
-  const {
-    title,
-    application_type,
-    frontend,
-    //algunas apps no tienen backend
-    backend,
-    year,
-    description,
-    duration,
-    //functionalities puede ser un array o un objeto
-    functionalities,
-    contributors,
-  } = infoCard;
+  const { title, year } = infoCard;
 
+
+  
   const animateEntry = {
     on: {
       opacity: 1,
@@ -260,7 +250,7 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
       <div className="projects__slider_container_card_info_description">
         <div className="projects__slider_container_card_info_description_title">
           <h4 className="">{title}</h4>
-          <p>{year}</p>
+          <strong>{year}</strong>
         </div>
         <div className="projects__slider_container_card_info_description_info">
           <div className="projects__slider_container_card_info_description_info_techs">
@@ -272,19 +262,16 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
               className="projects__slider_container_card_info_description_info_techs_carousel"
             >
               <AnimatePresence>
-                {logosFilteredSlice.map(({ logo ,  id}, i) => {
-
-              
+                {logosFilteredSlice.map(({ logo, id }, i) => {
                   return (
                     <motion.span
                       layout
                       key={i}
                       initial={{ opacity: 0 }}
+                    
                       animate={{
                         opacity: [0, 0.5, 1],
-                       
-                        
-                        
+
                         transition: {
                           duration: 2,
                           delay: i * 0.1,
@@ -295,7 +282,7 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
                       exit={{ opacity: 0 }}
                     >
                       <motion.img
-                        style={{ width: id === 8 ? 75 : "100%" } }
+                        style={{ width: id === 8 ? 50 : "100%" }}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -310,22 +297,42 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
               </AnimatePresence>
             </motion.div>
             <AnimatePresence />
-
-            {/* <div className="projects__slider_container_card_info_description_techs_front"> */}
-            {/* <h5>Frontend</h5>
-              {infoCard.frontend?.map((tech, i) => (
-                <div key={i}>{tech}</div>
-              ))}
-            </div>
-            <div className="projects__slider_container_card_info_description_techs_back">
-              <h5>Backend</h5>
-              {infoCard.backend.length &&
-                infoCard.backend?.map((tech, i) => <div key={i}>{tech}</div>)}
-            </div> */}
           </div>
+            <h3>{language === "en" ? "description" : "descripción"}</h3>
 
-          <p>{infoCard.description}</p>
-          {infoCard.contributors ? (
+          <p className="projects__slider_container_card_info_description_info_desc">{infoCard.description}</p>
+
+          <div className="projects__slider_container_card_info_description_functionalities">
+            <h3>{language === "en" ? "functionalities" : "funcionalidades"}</h3>
+
+            {Array.isArray(infoCard.functionalities)
+              ? infoCard.functionalities.map((func, i) => (
+                  <li
+                    className="projects__slider_container_card_info_description_functionalities_list projects__slider_container_card_info_description_functionalities_list_isArray"
+                    key={i}
+                  >
+                    {func}
+                  </li>
+                ))
+              : Object.entries(infoCard.functionalities).map(
+                  ([title, values], i) => {
+                    return (
+                      <li
+                        className="projects__slider_container_card_info_description_functionalities_list"
+                        key={i}
+                      >
+                        <h4>{title}</h4>
+                        <ul>
+                          {values.map((value, i ) => (
+                            <li key={i}>{value}</li>
+                          ))}
+                        </ul>
+                      </li>
+                    );
+                  }
+                )}
+          </div>
+          {/* {infoCard.contributors ? (
             <>
               <h3>{language === "en" ? "contributors" : "participantes"}</h3>
               <p>{infoCard.contributors}</p>
@@ -334,7 +341,7 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
             <h5>
               {language === "en" ? "Individual project" : "proyecto individual"}
             </h5>
-          )}
+          )} */}
         </div>
       </div>
     </motion.div>
@@ -361,69 +368,3 @@ const ProjectSliderCardSelector = ({
     </div>
   );
 };
-
-// import { FirebaseIcon } from "../../commons/icons/techs/back/FirebaseIcon";
-
-// //*Frontend
-// import { ReactIcon } from "../../commons/icons/techs/front/ReactIcon";
-// import { CssIcon } from "../../commons/icons/techs/front/CssIcon";
-// import { JavascriptIcon } from "../../commons/icons/techs/front/JavascriptIcon";
-// // import { NextIcon } from "../../commons/icons/techs/front/NextIcon";
-// // import { ReduxIcon } from "../../commons/icons/techs/front/ReduxIcon";
-// //*Backend
-// const projectsData = [
-//   {
-//     title: "Box - Plataforma 5",
-//     description: {
-//       en: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-//       es: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-//     },
-
-//     img: projectImg,
-//     link: "https://www.google.com",
-//     id: 1,
-//     techs: {
-//       front: ["next", "tailwind", "redux", "typescript"],
-//       back: ["nest", "mongodb", "typescript"],
-//     },
-//   },
-//   {
-//     title: "Onefeel - Plataforma 5",
-//     description: {
-//       en: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-//       es: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-//     },
-//     img: projectImg,
-//     link: "https://www.google.com",
-//     id: 2,
-//     techs: { front: ["react", "sass", "redux"], back: ["firebase", "openai"] },
-//   },
-//   {
-//     title: "E-Wine - Plataforma 5",
-//     description: {
-//       en: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-//       es: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-//     },
-//     img: projectImg,
-//     link: "https://www.google.com",
-//     id: 3,
-//     techs: {
-//       front: ["react", "sass", "redux"],
-//       back: ["express", "postgress"],
-//     },
-//   },
-//   {
-//     title: "TMDBFLIX",
-//     description: {
-//       en: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-//       es: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum sapiente quasi pariatur dolor hic architecto iure, aspernatur earum optio, expedita maxime, aliquam fugit soluta quis dolore dolorem exercitationem ratione!",
-//     },
-//     img: projectImg,
-//     link: "https://www.google.com",
-//     id: 4,
-//     techs: {
-//       front: ["react", "sass", "redux"],
-//       back: ["express", "postgress"],
-//     },
-//   },
-// ];
