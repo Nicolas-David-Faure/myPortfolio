@@ -178,9 +178,7 @@ const ProjectSliderCard = ({ infoCard, direction, screenWidth, language }) => {
       </AnimatePresence>
 
       <AnimatePresence>
-        {cardIsHovered && (
-          <ProjectSliderCardInfo infoCard={infoCard} language={language} />
-        )}
+        {cardIsHovered && <ProjectSliderCardInfo infoCard={infoCard} language={language} />}
       </AnimatePresence>
     </motion.div>
   );
@@ -188,8 +186,6 @@ const ProjectSliderCard = ({ infoCard, direction, screenWidth, language }) => {
 const ProjectSliderCardInfo = ({ infoCard, language }) => {
   const { title, year } = infoCard;
 
-
-  
   const animateEntry = {
     on: {
       opacity: 1,
@@ -207,9 +203,7 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
     },
   };
 
-  const logosFiltered = arrayLogos.filter((logo) =>
-    infoCard.techs.includes(logo.id)
-  );
+  const logosFiltered = arrayLogos.filter((logo) => infoCard.techs.includes(logo.id));
   const [currentIndex, setCurrentIndex] = useState(0);
 
   let logosFilteredSlice = logosFiltered.slice(currentIndex, currentIndex + 3);
@@ -268,7 +262,6 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
                       layout
                       key={i}
                       initial={{ opacity: 0 }}
-                    
                       animate={{
                         opacity: [0, 0.5, 1],
 
@@ -298,9 +291,11 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
             </motion.div>
             <AnimatePresence />
           </div>
-            <h3>{language === "en" ? "description" : "descripción"}</h3>
+          <h3>{language === "en" ? "description" : "descripción"}</h3>
 
-          <p className="projects__slider_container_card_info_description_info_desc">{infoCard.description}</p>
+          <p className="projects__slider_container_card_info_description_info_desc">
+            {infoCard.description}
+          </p>
 
           <div className="projects__slider_container_card_info_description_functionalities">
             <h3>{language === "en" ? "functionalities" : "funcionalidades"}</h3>
@@ -314,23 +309,21 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
                     {func}
                   </li>
                 ))
-              : Object.entries(infoCard.functionalities).map(
-                  ([title, values], i) => {
-                    return (
-                      <li
-                        className="projects__slider_container_card_info_description_functionalities_list"
-                        key={i}
-                      >
-                        <h4>{title}</h4>
-                        <ul>
-                          {values.map((value, i ) => (
-                            <li key={i}>{value}</li>
-                          ))}
-                        </ul>
-                      </li>
-                    );
-                  }
-                )}
+              : Object.entries(infoCard.functionalities).map(([title, values], i) => {
+                  return (
+                    <li
+                      className="projects__slider_container_card_info_description_functionalities_list"
+                      key={i}
+                    >
+                      <h4>{title}</h4>
+                      <ul>
+                        {values.map((value, i) => (
+                          <li key={i}>{value}</li>
+                        ))}
+                      </ul>
+                    </li>
+                  );
+                })}
           </div>
           {/* {infoCard.contributors ? (
             <>
@@ -348,11 +341,7 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
   );
 };
 
-const ProjectSliderCardSelector = ({
-  cardsLength,
-  cardsDisplayed,
-  cardsToShow,
-}) => {
+const ProjectSliderCardSelector = ({ cardsLength, cardsDisplayed, cardsToShow }) => {
   return (
     <div className="projects__slider_selector ">
       {Array.from({ length: cardsLength }, (card, i) => (
