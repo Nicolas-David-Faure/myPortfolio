@@ -33,7 +33,7 @@ export const Contact = ({ language }) => {
           <textarea className="form__textArea" name="mensaje" id="" cols="25" rows="4"></textarea>
 
           <button className="form__btn" type="submit">
-            Enviar
+            {language === "en" ? "Submit" : "Enviar"}
           </button>
         </form>
       </div>

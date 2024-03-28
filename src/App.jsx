@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { ActivityBar } from './components/activityBar/ActivityBar'
 import './App.css'
 import Desktop from './components/desktop/Desktop'
+import { Footer } from './components/footer/Footer'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <main className='main'>
       <ActivityBar language={language} />
       <Desktop language={language}  />
+      <Footer language={language}/>
     </main>
   )
 }
