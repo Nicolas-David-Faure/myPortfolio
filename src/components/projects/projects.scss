@@ -205,6 +205,59 @@
               font-size: 1rem;
               font-weight: 300;
             }
+
+
+            &_repositories{
+              width: 100%;
+              height: 2rem;
+              margin-bottom: 2rem;
+              display: flex;
+              justify-content: flex-end;
+              
+              padding-right: 5rem  !important;
+             
+              a{
+                width:5rem;
+                margin-right: 1.3rem;
+                height: 2rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 1rem;
+                padding: 0  1.5rem 0 .5rem;
+                border-radius: 3px;
+                box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+                
+                transition: ease all 0.3s;
+                text-transform: capitalize;
+                color: #f2f2f2;
+                span{
+                 
+                  padding-top: 5px;
+                }
+
+                &:hover{
+                  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+                  color: #ffffff;
+                }
+                img{
+                  width: 1.5rem;
+                  height: 1.5rem;
+                }
+              }
+              &_client{
+                background-color: rgb(231, 142, 18);
+                &:hover{
+                  background-color: rgb(245, 155, 30);
+                }
+              }
+              &_api{
+                background-color: rgb(14, 176, 14);
+                &:hover{
+                  background-color: rgb(24, 194, 24);
+                }
+              }
+            }
           }
          
 

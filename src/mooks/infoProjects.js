@@ -51,7 +51,11 @@ export const infoProjects = {
       "description": "Box-Delivery es una aplicación web que sirve para gestionar la entrega de paquetes.",
       "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
       "img": boxDeliveryCover,
-      "video": "watch?v=o2HyftVzWe0"
+      "video": "watch?v=o2HyftVzWe0",
+      "repositories": {
+        "client": "https://github.com/GermanCuevas/box-client",
+        "server": "https://github.com/GermanCuevas/box-nest-api"
+      }
     },
     {
       "id": 2,
@@ -71,7 +75,11 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 mes",
       "img": oneFeelCover,
-      "video": "watch?v=sa8Znjr6uRc"
+      "video": "watch?v=sa8Znjr6uRc",
+      "repositories": {
+        "client": "cant show",
+        "server": ""
+      }
     },
     {
       "id": 3,
@@ -92,7 +100,11 @@ export const infoProjects = {
       "year": "2023",
       "duration": "2 semanas",
       "img": ewineCover,
-      "video": "watch?v=SUJLN86AfV8"
+      "video": "watch?v=SUJLN86AfV8",
+      "repositories": {
+        "client": "https://github.com/Nicolas-David-Faure/E-WINE-FRONTEND",
+        "server": "https://github.com/Nicolas-David-Faure/E-Wine-BackEnd"
+      }
     },
     {
       "id": 4,
@@ -113,7 +125,11 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 semana",
       "img": tmdbflixCover,
-      "video": "watch?v=3Z1c3Zt3y9E"
+      "video": "watch?v=3Z1c3Zt3y9E",
+      "repositories": {
+        "client": "https://github.com/Nicolas-David-Faure/TMDB-flix",
+        "server": "https://github.com/Nicolas-David-Faure/TMDB-flix/tree/main/api"
+      }
     },
     {
       "id": 5,
@@ -131,7 +147,11 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 mes",
       "img": odontologiaCover,
-      "video": "watch?v=3Z1c3Zt3y9E"
+      "video": "watch?v=3Z1c3Zt3y9E",
+      "repositories": {
+        "client": "https://github.com/Nicolas-David-Faure/odontologia",
+        "server": ""
+      }
     },
     {
       "id": 6,
@@ -147,7 +167,12 @@ export const infoProjects = {
       "year": "2023",
       "duration": "-",
       "img": restaurantBuenaVida,
-      "video": "watch?v=3Z1c3Zt3y9E"
+      "video": "watch?v=3Z1c3Zt3y9E",
+      "repositories": {
+        "client": "https://github.com/Nicolas-David-Faure/restaurant-buena-vida",
+        "server": ""
+      }
+
     }
   ],
   "en": [
@@ -190,7 +215,11 @@ export const infoProjects = {
       "description": "Box-Delivery is a web application used to manage the delivery of packages.",
       "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
       "img": boxDeliveryCover,
-      "video": "watch?v=o2HyftVzWe0"
+      "video": "watch?v=o2HyftVzWe0",
+      "repositories": {
+        "client": "https://github.com/GermanCuevas/box-client",
+        "server": "https://github.com/GermanCuevas/box-nest-api"
+      }
     },
     {
       "id": 2,
@@ -210,7 +239,11 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 month",
       "img": oneFeelCover,
-      "video": "watch?v=sa8Znjr6uRc"
+      "video": "watch?v=sa8Znjr6uRc",
+      "repositories": {
+        "client": "cant show",
+        "server": ""
+      }
     },
     {
       "id": 3,
@@ -231,7 +264,11 @@ export const infoProjects = {
       "year": "2023",
       "duration": "2 weeks",
       "img":  ewineCover,
-      "video":  "watch?v=SUJLN86AfV8"
+      "video":  "watch?v=SUJLN86AfV8",
+      "repositories": {
+        "client": "https://github.com/Nicolas-David-Faure/E-WINE-FRONTEND",
+        "server": "https://github.com/Nicolas-David-Faure/E-Wine-BackEnd"
+      }
     },
     {
       "id": 4,
@@ -252,7 +289,11 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 week",
       "img": tmdbflixCover,
-      "video": "watch?v=3Z1c3Zt3y9E"
+      "video": "watch?v=3Z1c3Zt3y9E",
+      "repositories": {
+        "client": "https://github.com/Nicolas-David-Faure/TMDB-flix",
+        "server": "https://github.com/Nicolas-David-Faure/TMDB-flix/tree/main/api"
+      }
     },
     {
       "id": 5,
@@ -270,7 +311,11 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 month",
       "img": odontologiaCover,
-      "video": "watch?v=3Z1c3Zt3y9E"
+      "video": "watch?v=3Z1c3Zt3y9E",
+      "repositories": {
+        "client": "https://github.com/Nicolas-David-Faure/odontologia",
+        "server": ""
+      }
     },
     {
       "id": 6,
@@ -287,7 +332,11 @@ export const infoProjects = {
       "year": "2023",
       "duration": "-",
       "img": restaurantBuenaVida,
-      "video": "watch?v=3Z1c3Zt3y9E"
+      "video": "watch?v=3Z1c3Zt3y9E",
+      "repositories": {
+        "client": "https://github.com/Nicolas-David-Faure/restaurant-buena-vida",
+        "server": ""
+      }
     }
   ]
 }

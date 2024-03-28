@@ -15,6 +15,8 @@ import ReactPlayer from "react-player";
 //logos tachs
 import { arrayLogos } from "../../mooks/logosSkill";
 
+import gitHubLogo from "../../assets/img/logo-skills/Github.png";
+
 export const Projects = ({ language }) => {
   return (
     <section className="projects__main">
@@ -325,16 +327,26 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
                   );
                 })}
           </div>
-          {/* {infoCard.contributors ? (
-            <>
-              <h3>{language === "en" ? "contributors" : "participantes"}</h3>
-              <p>{infoCard.contributors}</p>
-            </>
-          ) : (
-            <h5>
-              {language === "en" ? "Individual project" : "proyecto individual"}
-            </h5>
-          )} */}
+          <section className="projects__slider_container_card_info_description_info_repositories">
+            {Object.entries(infoCard.repositories).map(([type, url], i) => {
+              const classLink =
+                "projects__slider_container_card_info_description_info_repositories";
+              return (
+                url !== "" && (
+                  <a
+                    className={`${classLink}${type === "server" ? "_api" : "_client"}`}
+                    key={i + url}
+                    href={url}
+                    target="_blank"
+                  >
+                    <img src={gitHubLogo} alt="logo github" />
+                    
+                    <span>{type === "server" ? "api" : type}</span> 
+                  </a>
+                )
+              );
+            })}
+          </section>
         </div>
       </div>
     </motion.div>
