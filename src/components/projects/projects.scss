@@ -89,6 +89,7 @@
         border-radius: 3px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         top: 0;
+        
       
         &_video {
           width: 100%;
@@ -128,6 +129,21 @@
               font-weight: 300;
               margin: 0;
               padding: 0;
+            }
+            @media screen and (max-width: 600px) {
+              h4 {
+                margin: 0;
+                padding: 0;
+                font-size: 1rem;
+                font-weight: 600;
+              }
+  
+              p {
+                font-size: 1rem;
+                font-weight: 300;
+                margin: 0;
+                padding: 0;
+              }
             }
           }
 
@@ -374,6 +390,12 @@
         width: 100%;
         &_info {
           padding: 2rem;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        width: 100%;
+        &_info {
+          padding: 0rem;
         }
       }
     }

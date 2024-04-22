@@ -51,3 +51,11 @@ export const arrayLogos = [
   { id: 21,name: "Framer Motion", logo: framerMotionLogo },
   { id: 22,name: "Sequelize", logo: sequelize },
 ];
+
+
+
+
+
+
+
+

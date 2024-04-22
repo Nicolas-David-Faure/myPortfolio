@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/contacto.scss";
 import emailjs from 'emailjs-com';
 
-const SERVICE_ID = import.meta.env.VITE_APP_SERVICE_ID
+const SERVICE_ID = import.meta.env.VITE_APP_PRIVATE_KEY
 export const Contact = ({ language }) => {
 
 
