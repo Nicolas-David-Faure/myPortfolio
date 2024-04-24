@@ -10,7 +10,7 @@ import { ArrowLeftIcon } from "../../commons/icons/ArrowLeftIcon";
 import { useSelector } from "react-redux";
 
 import { infoProjects } from "../../mooks/infoProjects";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/youtube";
 
 //logos tachs
 import { arrayLogos } from "../../mooks/logosSkill";
@@ -224,7 +224,7 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
 
     return () => clearInterval(interval);
   }, [logosFilteredSlice]);
-
+  console.log(infoCard.urlDrive)
   return (
     <motion.div
       initial={"off"}
@@ -234,14 +234,16 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
       className="projects__slider_container_card_info"
     >
       <div className="projects__slider_container_card_info_video">
-        <ReactPlayer
+       
+          <ReactPlayer
           volume={50}
           controls={true}
           playing={true}
           width={"100%"}
           height={"100%"}
           url={`https://www.youtube.com/${infoCard.video}`}
-        />
+          />
+
       </div>
       <div className="projects__slider_container_card_info_description">
         <div className="projects__slider_container_card_info_description_title">
