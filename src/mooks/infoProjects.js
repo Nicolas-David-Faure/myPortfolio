@@ -5,15 +5,50 @@ import oneFeelCover from "../assets/img/photos_slider/oneFeel.jpeg";
 import boxDeliveryCover from "../assets/img/photos_slider/boxDelivery.jpeg";
 import tmdbflixCover from "../assets/img/photos_slider/tmdbflix.jpg";
 import odontologiaCover from "../assets/img/photos_slider/odontologia.jpeg";
-
+import onetrainingCover from "../assets/img/photos_slider/onetraining.jpeg";
 import restaurantBuenaVida from "../assets/img/photos_slider/restaurantBuenaVida.jpeg";
 
 
+const demosID = {
+  oneTraining: "watch?v=3-R8aJOCONU",
+  boxDelivery: "watch?v=ARsdy7WWggE", // TODO
+  oneFeel: "watch?v=TuupRYUqV1U",
+  ewine: "watch?v=wALSTgk6IWE",
+  tmdbflix: "watch?v=3Z1c3Zt3y9E", //TODO
+  odontologia: "watch?v=H9U-PDI0EZs",
+  restaurantBuenaVida: "watch?v=ARsdy7WWggE"
 
+}
 export const infoProjects = {
   "es": [
+    
     {
       "id": 1,
+      "title": "OneTraining",
+      "application_type": "Fullstack",
+      "techs": [ 4 , 11 , 7 , 6 , 16],
+
+      "contributors": ["German Cuevas", "Claudio Lugo", "Fiama Talavera"],  
+      "description": "OneFeel es una aplicación web que sirve para realizar análisis de emociones en tiempo real para detectar las emociones tanto de los agentes como de las personas y tener evaluación de estos mediante métricas y tablas con actualizaciones en tiempo real.",
+      "functionalities": [
+        "Chatbot análisis de emociones en mensajería",
+        "Métricas",
+        "Vista de tablas emociones",
+        "Vista de tablas agentes",
+        "Filtros"
+      ],
+      "year": "2023",
+      "duration": "1 mes",
+      "img": onetrainingCover,
+      "video": demosID.oneTraining,
+      
+      "repositories": {
+        "client": "cant show",
+        "server": ""
+      }
+    },
+    {
+      "id": 2,
       "title": "Box-Delivery",
       "application_type": "Fullstack",
       "techs": [ 5 , 6 , 8 , 20 , 9 ,  12 , 13 , 17],    
@@ -51,14 +86,14 @@ export const infoProjects = {
       "description": "Box-Delivery es una aplicación web que sirve para gestionar la entrega de paquetes.",
       "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
       "img": boxDeliveryCover,
-      "video": "watch?v=o2HyftVzWe0",
+      "video": demosID.boxDelivery,
       "repositories": {
         "client": "https://github.com/GermanCuevas/box-client",
         "server": "https://github.com/GermanCuevas/box-nest-api"
       }
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "OneFeel",
       "application_type": "Fullstack",
       "techs": [ 4 , 11 , 7 , 6 , 16],
@@ -75,14 +110,14 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 mes",
       "img": oneFeelCover,
-      "video": "watch?v=sa8Znjr6uRc",
+      "video":  demosID.oneFeel,
       "repositories": {
         "client": "cant show",
         "server": ""
       }
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Ewine",
       "application_type": "Fullstack",
       "techs": [ 4  , 7 , 6 ,  21, 3, 10, 17, 14, 22],
@@ -100,14 +135,14 @@ export const infoProjects = {
       "year": "2023",
       "duration": "2 semanas",
       "img": ewineCover,
-      "video": "watch?v=SUJLN86AfV8",
+      "video": demosID.ewine,
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/E-WINE-FRONTEND",
         "server": "https://github.com/Nicolas-David-Faure/E-Wine-BackEnd"
       }
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "TMDBflix",
       "application_type": "Fullstack",
       "participantes": ["Individual"],
@@ -125,14 +160,14 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 semana",
       "img": tmdbflixCover,
-      "video": "watch?v=3Z1c3Zt3y9E",
+      "video": demosID.tmdbflix,
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/TMDB-flix",
         "server": "https://github.com/Nicolas-David-Faure/TMDB-flix/tree/main/api"
       }
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Odontología",
       "application_type": "Frontend",
       "techs": [4,  7, 6, 21,3],
@@ -147,14 +182,14 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 mes",
       "img": odontologiaCover,
-      "video": "watch?v=3Z1c3Zt3y9E",
+      "video": demosID.odontologia,
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/odontologia",
         "server": ""
       }
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Restaurant Buena Vida",
       "application_type": "Frontend",
       "techs": [4,  7, 6, 21,3],
@@ -167,7 +202,7 @@ export const infoProjects = {
       "year": "2023",
       "duration": "-",
       "img": restaurantBuenaVida,
-      "video": "watch?v=3Z1c3Zt3y9E",
+      "video": demosID.restaurantBuenaVida,
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/restaurant-buena-vida",
         "server": ""
@@ -178,6 +213,30 @@ export const infoProjects = {
   "en": [
     {
       "id": 1,
+      "title": "OneTraining",
+      "application_type": "Fullstack",
+      "techs": [ 4 , 11 , 7 , 6 , 16],
+
+      "contributors": ["German Cuevas", "Claudio Lugo", "Fiama Talavera"],  
+      "description": "OneFeel es una aplicación web que sirve para realizar análisis de emociones en tiempo real para detectar las emociones tanto de los agentes como de las personas y tener evaluación de estos mediante métricas y tablas con actualizaciones en tiempo real.",
+      "functionalities": [
+        "Chatbot análisis de emociones en mensajería",
+        "Métricas",
+        "Vista de tablas emociones",
+        "Vista de tablas agentes",
+        "Filtros"
+      ],
+      "year": "2023",
+      "duration": "1 mes",
+      "img": onetrainingCover,
+      "video": demosID.oneTraining,
+      "repositories": {
+        "client": "cant show",
+        "server": ""
+      }
+    },
+    {
+      "id": 2,
       "title": "Box-Delivery",
       "application_type": "Fullstack",
       "techs": [ 5 , 6 , 8 , 20 , 9 ,  12 , 13 , 17],    
@@ -215,14 +274,14 @@ export const infoProjects = {
       "description": "Box-Delivery is a web application used to manage the delivery of packages.",
       "contributors": ["Victoria Canclini", "Ivan Lucana", "Florencia Martinez", "German Cuevas"],
       "img": boxDeliveryCover,
-      "video": "watch?v=o2HyftVzWe0",
+      "video":  demosID.boxDelivery,
       "repositories": {
         "client": "https://github.com/GermanCuevas/box-client",
         "server": "https://github.com/GermanCuevas/box-nest-api"
       }
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "OneFeel",
       "application_type": "Fullstack",
       "techs": [ 4 , 11 , 7 , 6 , 16],
@@ -239,14 +298,14 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 month",
       "img": oneFeelCover,
-      "video": "watch?v=sa8Znjr6uRc",
+      "video":  demosID.oneFeel,
       "repositories": {
         "client": "cant show",
         "server": ""
       }
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Ewine",
       "application_type": "Fullstack",
       "techs": [ 4  , 7 , 6 ,  21, 3, 10, 17, 14, 22],
@@ -264,14 +323,14 @@ export const infoProjects = {
       "year": "2023",
       "duration": "2 weeks",
       "img":  ewineCover,
-      "video":  "watch?v=SUJLN86AfV8",
+      "video":  demosID.ewine,
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/E-WINE-FRONTEND",
         "server": "https://github.com/Nicolas-David-Faure/E-Wine-BackEnd"
       }
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "TMDBflix",
       "application_type": "Fullstack",
       "participants": ["Individual"],
@@ -289,14 +348,14 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 week",
       "img": tmdbflixCover,
-      "video": "watch?v=3Z1c3Zt3y9E",
+      "video": demosID.tmdbflix,
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/TMDB-flix",
         "server": "https://github.com/Nicolas-David-Faure/TMDB-flix/tree/main/api"
       }
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Dentistry",
       "application_type": "Frontend",
       "techs": [4,  7, 6, 21,3],
@@ -311,14 +370,14 @@ export const infoProjects = {
       "year": "2023",
       "duration": "1 month",
       "img": odontologiaCover,
-      "video": "watch?v=3Z1c3Zt3y9E",
+      "video":  demosID.odontologia,
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/odontologia",
         "server": ""
       }
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Restaurant Buena Vida",
       "application_type": "Frontend",
       "techs": [4,  7, 6, 21,3],
@@ -332,7 +391,7 @@ export const infoProjects = {
       "year": "2023",
       "duration": "-",
       "img": restaurantBuenaVida,
-      "video": "watch?v=3Z1c3Zt3y9E",
+      "video":  demosID.restaurantBuenaVida,
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/restaurant-buena-vida",
         "server": ""
