@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRightIcon } from "../../commons/icons/ArrowRightIcon";
 import { ArrowLeftIcon } from "../../commons/icons/ArrowLeftIcon";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { infoProjects } from "../../mooks/infoProjects";
 import ReactPlayer from "react-player/youtube";
@@ -16,6 +16,7 @@ import ReactPlayer from "react-player/youtube";
 import { arrayLogos } from "../../mooks/logosSkill";
 
 import gitHubLogo from "../../assets/img/logo-skills/Github.png";
+import { setIsDragging } from "../../store/slice/projects";
 
 export const Projects = ({ language }) => {
   return (
@@ -31,7 +32,7 @@ export const Projects = ({ language }) => {
 
 const ProjectsSlider = ({ language }) => {
   const { screenWidth } = useSelector((state) => state.screenSlice);
-
+  const [pointX, setPointX] = useState(0);
   const [cards, setCards] = useState(infoProjects[language]);
   const [currentCards, setCurrentCards] = useState(0);
   const [direction, setDirection] = useState(false);
@@ -41,6 +42,8 @@ const ProjectsSlider = ({ language }) => {
   const cardsToShow = screenWidth > 768 ? 3 : screenWidth > 600 ? 2 : 1;
   const cardsDivided = Math.ceil(cardsLength / cardsToShow);
   const cardsDisplayed = cards.slice(currentCards, currentCards + cardsToShow);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     setCards(infoProjects[language]);
@@ -85,16 +88,31 @@ const ProjectsSlider = ({ language }) => {
       .substr(2, 9);
   };
 
-  const handleDrag = (event, info) => {
-    console.log(info.point.x);
+  const handleDragStart = (event, info) => {
+    dispatch(setIsDragging(true));
 
-    if (info.point.x > 500) {
+  }
+
+  const handleDrag = (event, info) => {
+    console.log(info.point.x)
+ 
+    
+    if (info.point.x > 250) {
       handlePrevCard();
     }
-    if (info.point.x < -300) {
+    if (info.point.x < 150) {
       handleNextCard();
-    }
+    } 
+setTimeout(() => {
+  
+  dispatch(setIsDragging(false)) 
+}, 500)
+  
   };
+
+
+
+
 
   return (
     <div className="projects__slider">
@@ -116,13 +134,19 @@ const ProjectsSlider = ({ language }) => {
         </>
       )}
 
+
+  
       <motion.div
-        drag="x"
+      
+        drag={screenWidth > 600 ? false : 'x'} 
+        dragElastic={1}
+        onDragStart={handleDragStart}
+        
         onDragEnd={handleDrag}
         dragConstraints={{ left: 0, right: 0 }}
         ref={refProjectsSlider}
         className="projects__slider_container"
-        onTap={() => console.log("tapped")}
+       
       >
         {cardsDisplayed.map((card, i) => {
           return (
@@ -132,6 +156,7 @@ const ProjectsSlider = ({ language }) => {
               direction={direction}
               infoCard={card}
               language={language}
+              // pointX={pointX}
             />
           );
         })}
@@ -142,29 +167,66 @@ const ProjectsSlider = ({ language }) => {
         cardsLength={cardsLength}
         cardsDisplayed={cardsDisplayed}
         cardsDivided={cardsDivided}
+        pointX={pointX}
+     
       />
     </div>
   );
 };
 
-const ProjectSliderCard = ({ infoCard, direction, screenWidth, language }) => {
+const ProjectSliderCard = ({ infoCard, direction, screenWidth, language  }) => {
+
+  const {isDraggin} = useSelector((state) => state.projectsSlice);
   const [cardIsHovered, setCardIsHovered] = useState(false);
+  const [timeTap, setTimeTap] = useState(0);
+
+
+
+  const handleCardHover = () => {
+ 
+    setCardIsHovered(true);
+   
+  }
+  const handleOnHoverEnd = () => {
+    setCardIsHovered(false);
+   
+  }
+  const handleOnTouchStart = () => {
+    setTimeTap(new Date().getTime());
+
+  }
+
+
+  const handleOnTouchEnd = () => {
+    const timeTouch = new Date().getTime();
+    const timeDifference = timeTouch - timeTap;
+
+    if(!isDraggin){
+      if (!cardIsHovered && timeDifference < 300) {
+        setCardIsHovered(!cardIsHovered);
+       
+      }else if(cardIsHovered && timeDifference < 70){
+        setCardIsHovered(false)
+      
+      }
+    }
+  }
 
   return (
     <motion.div
       layout
-      onHoverStart={() => setCardIsHovered(true)}
-      onHoverEnd={() => setCardIsHovered(false)}
+      onHoverStart={handleCardHover}
+      onHoverEnd={handleOnHoverEnd}
       className="projects__slider_container_card"
-      // onTap={() =>
-      onTouchEnd={() => setCardIsHovered(!cardIsHovered)}
+      onTouchStart={handleOnTouchStart}
+      onTouchEnd={handleOnTouchEnd}
     >
       <AnimatePresence>
         <motion.img
           key={infoCard.img}
           layout
           initial={{ opacity: 0.2, x: direction ? "200%" : "-200%" }}
-          animate={{ opacity: 1, x: 0 }} // Ajustar la duración y la transición
+          animate={{ opacity: cardIsHovered ? 0 : 1, x: 0 }} // Ajustar la duración y la transición
           transition={{
             duration: 0.3,
             ease: "easeInOut",
@@ -185,6 +247,8 @@ const ProjectSliderCard = ({ infoCard, direction, screenWidth, language }) => {
     </motion.div>
   );
 };
+
+
 const ProjectSliderCardInfo = ({ infoCard, language }) => {
   const { title, year } = infoCard;
 
@@ -224,7 +288,7 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
 
     return () => clearInterval(interval);
   }, [logosFilteredSlice]);
-  console.log(infoCard.urlDrive)
+
   return (
     <motion.div
       initial={"off"}

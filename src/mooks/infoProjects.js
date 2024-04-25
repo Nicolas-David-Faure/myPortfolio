@@ -14,7 +14,7 @@ const demosID = {
   boxDelivery: "watch?v=ARsdy7WWggE", // TODO
   oneFeel: "watch?v=TuupRYUqV1U",
   ewine: "watch?v=wALSTgk6IWE",
-  tmdbflix: "watch?v=3Z1c3Zt3y9E",
+  tmdbflix: "watch?v=3Z1c3Zt3y9E", //TODO
   odontologia: "watch?v=H9U-PDI0EZs",
   restaurantBuenaVida: "watch?v=ARsdy7WWggE"
 
@@ -23,7 +23,7 @@ export const infoProjects = {
   "es": [
     
     {
-      "id": 0,
+      "id": 1,
       "title": "OneTraining",
       "application_type": "Fullstack",
       "techs": [ 4 , 11 , 7 , 6 , 16],
@@ -48,7 +48,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 1,
+      "id": 2,
       "title": "Box-Delivery",
       "application_type": "Fullstack",
       "techs": [ 5 , 6 , 8 , 20 , 9 ,  12 , 13 , 17],    
@@ -93,7 +93,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "OneFeel",
       "application_type": "Fullstack",
       "techs": [ 4 , 11 , 7 , 6 , 16],
@@ -117,7 +117,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Ewine",
       "application_type": "Fullstack",
       "techs": [ 4  , 7 , 6 ,  21, 3, 10, 17, 14, 22],
@@ -136,15 +136,13 @@ export const infoProjects = {
       "duration": "2 semanas",
       "img": ewineCover,
       "video": demosID.ewine,
-      "urlDrive": "https://drive.google.com/file/d/1GJfvL-2Uz5PBD0z8EVbDnDGvvZS0uewm/view?usp=sharing",
-
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/E-WINE-FRONTEND",
         "server": "https://github.com/Nicolas-David-Faure/E-Wine-BackEnd"
       }
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "TMDBflix",
       "application_type": "Fullstack",
       "participantes": ["Individual"],
@@ -169,7 +167,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Odontología",
       "application_type": "Frontend",
       "techs": [4,  7, 6, 21,3],
@@ -191,7 +189,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Restaurant Buena Vida",
       "application_type": "Frontend",
       "techs": [4,  7, 6, 21,3],
@@ -214,7 +212,7 @@ export const infoProjects = {
   ],
   "en": [
     {
-      "id": 0,
+      "id": 1,
       "title": "OneTraining",
       "application_type": "Fullstack",
       "techs": [ 4 , 11 , 7 , 6 , 16],
@@ -238,7 +236,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 1,
+      "id": 2,
       "title": "Box-Delivery",
       "application_type": "Fullstack",
       "techs": [ 5 , 6 , 8 , 20 , 9 ,  12 , 13 , 17],    
@@ -283,7 +281,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "OneFeel",
       "application_type": "Fullstack",
       "techs": [ 4 , 11 , 7 , 6 , 16],
@@ -307,7 +305,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Ewine",
       "application_type": "Fullstack",
       "techs": [ 4  , 7 , 6 ,  21, 3, 10, 17, 14, 22],
@@ -326,15 +324,13 @@ export const infoProjects = {
       "duration": "2 weeks",
       "img":  ewineCover,
       "video":  demosID.ewine,
-    
-
       "repositories": {
         "client": "https://github.com/Nicolas-David-Faure/E-WINE-FRONTEND",
         "server": "https://github.com/Nicolas-David-Faure/E-Wine-BackEnd"
       }
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "TMDBflix",
       "application_type": "Fullstack",
       "participants": ["Individual"],
@@ -359,7 +355,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Dentistry",
       "application_type": "Frontend",
       "techs": [4,  7, 6, 21,3],
@@ -381,7 +377,7 @@ export const infoProjects = {
       }
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Restaurant Buena Vida",
       "application_type": "Frontend",
       "techs": [4,  7, 6, 21,3],
