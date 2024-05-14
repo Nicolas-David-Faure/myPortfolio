@@ -18,7 +18,7 @@ export const Aboutme = ({ language }) => {
   return (
     <section className="aboutme__main">
       <div className="aboutme__title">
-        <h3>{language === "en" ? "about me" : "sobre mí"}</h3>
+        <h3 id="aboutme">{language === "en" ? "about me" : "sobre mí"}</h3>
       </div>
       <div className="aboutme__container">
         <AboutmeDescription language={language} />
@@ -33,7 +33,7 @@ const AboutmeSkills = ({ language, screenWidth }) => {
   return (
     <>
       <div className="aboutme__title">
-        <h3>{language === "en" ? "skills" : "habilidades"}</h3>
+        <h3 id="skills">{language === "en" ? "skills" : "habilidades"}</h3>
       </div>
 
       <div className="aboutme__skills">

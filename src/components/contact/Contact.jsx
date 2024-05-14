@@ -27,8 +27,8 @@ export const Contact = ({ language }) => {
   };
 
   const variants = {
-    off: { opacity: 0, x: 100, position: "absolute", zIndex: -1},
-    on: { opacity: 1, x: 0, position: "absolute", zIndex: 100},
+    off: { opacity: 0, x: 100, position: "absolute"},
+    on: { opacity: 1, x: 0, position: "absolute", zIndex: 1},
   };
 
   const handleAlert = (message, type) => {
@@ -41,14 +41,20 @@ export const Contact = ({ language }) => {
     <section id="contact" className="contacto__container">
       <AnimatePresence>
         {
-          <motion.div initial="off" animate={alert.status ? "on" : "off"} variants={variants} className={`alert__form ${alert.type}`}>
+          <motion.div initial="off" animate={alert.status ? "on" : "off"} variants={variants} transition={{
+            duration: 0.1,
+            type: "spring",
+            ease: "easeInOut",
+            stiffness: 150,
+
+          }} className={`alert__form ${alert.type}`}>
             <p>{alert.message}</p>
           </motion.div>
         }
       </AnimatePresence>
 
       <div className="contacto__title">
-        <h3>{language === "en" ? "contact" : "contacto"}</h3>
+        <h3 >{language === "en" ? "contact" : "contacto"}</h3>
       </div>
 
       <div className="contacto__divisor">

@@ -18,7 +18,7 @@ export const Home = ({ language }) => {
 
 const Title = ({ language }) => {
   return (
-    <div className="home__title">
+    <div id="home" className="home__title">
       <h1>Nicolás Faure</h1>
       <h2>
         {language === "en"

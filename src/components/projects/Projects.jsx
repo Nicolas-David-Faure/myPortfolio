@@ -22,7 +22,7 @@ export const Projects = ({ language }) => {
   return (
     <section className="projects__main">
       <div className="aboutme__title">
-        <h3>{language == "en" ? "projects" : "proyectos"}</h3>
+        <h3 id="projects">{language == "en" ? "projects" : "proyectos"}</h3>
       </div>
 
       <ProjectsSlider language={language} />
@@ -137,7 +137,6 @@ setTimeout(() => {
 
   
       <motion.div
-      
         drag={screenWidth > 600 ? false : 'x'} 
         dragElastic={1}
         onDragStart={handleDragStart}
