@@ -205,7 +205,7 @@ const ProjectSliderCard = ({ infoCard, direction, screenWidth, language  }) => {
       if (!cardIsHovered && timeDifference < 300) {
         setCardIsHovered(!cardIsHovered);
        
-      }else if(cardIsHovered && timeDifference < 70){
+      }else if(cardIsHovered && timeDifference < 100){
         setCardIsHovered(false)
       
       }

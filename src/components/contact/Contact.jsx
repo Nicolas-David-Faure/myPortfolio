@@ -1,64 +1,74 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { AnimatePresence, motion } from "framer-motion";
 import "./styles/contacto.scss";
-import emailjs from 'emailjs-com';
 
-const SERVICE_ID = import.meta.env.VITE_APP_PRIVATE_KEY
 export const Contact = ({ language }) => {
+  const [alert, setAlert] = React.useState({
+    message: "",
+    type: "",
+    status: false,
+  });
+  const form = useRef();
 
-
-  
-
-  console.log(SERVICE_ID)
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-    }
+    emailjs.sendForm("service_3rf3yim", "template_uupek1s", form.current, "Evzi803AAoIqhJcdr").then(
+      () => {
+        handleAlert(language === "en" ? "Email sent successfully 😄" : "Correo enviado exitosamente 😄", "success");
+        form.current.reset();
+      },
+      (error) => {
+        handleAlert(language === "en" ? "Failed to send email 🧐" : "Fallo al enviar el correo 🧐", "error");
+        console.log(error.text);
+      }
+    );
+  };
 
+  const variants = {
+    off: { opacity: 0, x: 100, position: "absolute", zIndex: -1},
+    on: { opacity: 1, x: 0, position: "absolute", zIndex: 100},
+  };
 
-
+  const handleAlert = (message, type) => {
+    setAlert({ message, type, status: true });
+    setTimeout(() => {
+      setAlert({ message: "", type: "", status: false });
+    }, 3000);
+  };
   return (
     <section id="contact" className="contacto__container">
+      <AnimatePresence>
+        {
+          <motion.div initial="off" animate={alert.status ? "on" : "off"} variants={variants} className={`alert__form ${alert.type}`}>
+            <p>{alert.message}</p>
+          </motion.div>
+        }
+      </AnimatePresence>
+
       <div className="contacto__title">
         <h3>{language === "en" ? "contact" : "contacto"}</h3>
       </div>
 
       <div className="contacto__divisor">
-        <form onSubmit={sendEmail} className="contacto__form">
-          <div className="form__cont_label">
-            <label className="form__label" for="form__name">
-              {language === "en" ? "Name:" : "Nombre:"}
-            </label>
+        <form onSubmit={sendEmail} ref={form} className="contacto__form">
+         
+          <div className="form__cont_first">
+
+            <input required className="form__inputs" placeholder={language === "en" ? "Name" : "Nombre"} name="from_name" id="form__name" type="text" />
+
+
+            <input  required className="form__inputs" name="subject" placeholder={language === "en" ? "Subject" : "Asunto"} id="form__subject" type="text" />
+          
           </div>
+         
+     
+          <input required name="user_email" placeholder={language === "en" ? "Email" : "Correo"} className="form__inputs form__inputs_email" id="form__email" type="email" />
 
-          <input className="form__inputs" placeholder="Jhon Smith" id="form__name" type="text" />
-          <div className="form__cont_label">
-            <label className="form__label" for="form__email">
-             {language === "en" ? "Email:" : "Correo:"}
-            </label>
-          </div>
-          <input
-            name="email"
-            placeholder="any@any.com"
-            className="form__inputs"
-            id="form__email"
-            type="email"
-          />
+          <textarea required  className="form__textArea" name="message" id="" cols="25" rows="4"></textarea>
 
-          <textarea className="form__textArea" name="mensaje" id="" cols="25" rows="4"></textarea>
-
-          <button  onClick={sendEmail} className="form__btn" type="submit">
+          <button className="form__btn" value="Send" type="submit">
             {language === "en" ? "Submit" : "Enviar"}
           </button>
         </form>
@@ -66,3 +76,26 @@ export const Contact = ({ language }) => {
     </section>
   );
 };
+
+// const AlertForm = ({ message  , type }) => {
+
+//   const variants = {
+//     off: { opacity: 0, y: -100 },
+//     on: { opacity: 1, y: 0 },
+
+//   }
+//   return (
+//     <>
+
+//       <motion.div
+//         initial="off"
+//         animate="on"
+//         variants={variants}
+//       className={`alert__form ${type}`}>
+//         <p>{message}</p>
+//       </motion.div>
+
+//     </>
+//      );
+
+// };

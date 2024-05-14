@@ -1,32 +1,52 @@
 .contacto__form{
-    width: fit-content;
-    height: 35rem;
-   
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
     border-radius: 3px;
-  
     justify-content: center;
+}
+
+.form__cont_first{
+    width: 99%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 5px;
 }
 
 .form__inputs{
    
-    width: 30rem;
+    width: 50%;
     text-align: center;
-    padding: 15px;
+    padding: 10px 5px;
     font-size: 1.3rem;
     outline: none;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.319);
-
+    height: 2rem;
     border-radius: 2px;
     color: #f2f2f2;
     border: none;
-    background-color: rgba(0, 0, 0, 0.377);
+    background-color: rgba(8, 11, 63, 0.522);
+    transition: background-color .3s ease;
+}
+.form__inputs_email{
+    width: 98%;
+    margin-top: 1rem;
+    padding: 10px 5px;
+
+}
+.form__inputs:focus{
+    background-color: rgba(10, 59, 115, 0.567);
 }
 .form__inputs::placeholder{
     font-size: 1.1rem;
+
+    color: rgba(240, 248, 255, 0.313);
 }
 .form__btn{
     border-radius: 3px;
@@ -67,20 +87,22 @@
 .form__textArea{
     margin: 1rem 0;
     outline: none;
-    width: 30rem;
-    height: 30rem;
-    background-color: rgba(0, 0, 0, 0.24);
-    padding: 10px;
+    width: 98%;
+    height: 15rem;
+    background-color: rgba(8, 11, 63, 0.522);
+
+    padding: 5px;
     overflow-y: scroll;
     border: none;
     font-size: 1.1rem;
-    color:var(--color-text-header);
+    color: #f2f2f2;
     border-radius: 2px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.319);
     transition: ease all .3s;
+
 }
 .form__textArea:focus{
-    background-color: rgba(137, 137, 137, 0.311);
+    background-color: rgba(10, 59, 115, 0.567);
 }
 
 .form__textArea::-webkit-scrollbar{
@@ -102,61 +124,27 @@
     .contacto__form{
         width: 90%;
     }
-    .form__inputs{
-        width: 70%;
-        height: 3rem;
-    }
-    .form__cont_label{
-        width:70%;
-    }
-    .form__textArea{
-        width: 80%;
-    }
+   
 } 
 
  @media screen and (min-width:468px) {
     .contacto__form{
         width: 85%;
     }
-    .form__inputs{
-        width: 60%;
-        height: 3.5rem;
-    }
-    .form__cont_label{
-        width:60%;
-    }
-    .form__textArea{
-        width: 70%;
-    }
+  
  
 }
 @media screen and (min-width:768px) {
     .contacto__form{
         width: 75%;
     }
-    .form__inputs{
-        width: 55%;
-        height: 3.5rem;
-    }
-    .form__cont_label{
-        width:55%;
-    }
-    .form__textArea{
-        width: 60%;
-    }
+   
 }
 @media screen and (min-width:1024px){
     .contacto__form{
         width: 75%;
     }
-    .form__inputs{
-        width: 40%;
-        height: 3.5rem;
-    }
-    .form__cont_label{
-        width:40%;
-    }
-    .form__textArea{
-        width: 50%;
-    }
+.form__cont_first{
+    width: 100%;
+}
 }

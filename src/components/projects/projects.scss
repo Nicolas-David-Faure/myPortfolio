@@ -3,7 +3,7 @@
 .projects__ {
   &main {
     width: 100%;
-    min-height: 100vh;
+    min-height: fit-content;
     display: flex;
 
     align-items: center;
@@ -432,7 +432,6 @@
         width: 50px;
         height: 15px;
 
-        border-radius: 50%;
       }
     }
   }
