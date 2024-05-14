@@ -275,6 +275,15 @@
       width: 95%;
       gap: 1rem;
       position: relative;
+      padding-top: 2.5rem;
+
+      @media screen and (min-width: 1420px) {
+        width: 90%;
+      }
+
+      @media screen and (min-width: 1260px) {
+        width: 90%;
+      }
 
       @media screen and (max-width: 968px) {
         width: 100%;
