@@ -3,6 +3,7 @@ import './menuDropdown.scss'
 
 import { setToggleMenuDropdown } from "../../store/slice/activityBar/activityBarSlice";
 import { useDispatch } from 'react-redux';
+import { LanguageSelector } from '../../commons/languageSelector/LanguageSelector';
 
 export const MenuDropdown = ({ language }) => {
   const dispatch = useDispatch();
@@ -34,13 +35,17 @@ export const MenuDropdown = ({ language }) => {
     },
   ];
 
+   
   return (
     <div className="menuDropdown__main">
+     
       {infoMenuDropdown.map((item) => (
         <a onClick={()=> dispatch(setToggleMenuDropdown(false))} href={'#'+item.name} key={item.id} className="menuDropdown__ul">
           <li>{item.section}</li>
         </a>
       ))}
+       
+  
     </div>
   )
 }
