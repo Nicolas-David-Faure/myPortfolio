@@ -4,14 +4,25 @@ import { GithubIcon } from "../../commons/icons/GithubIcon";
 import { LinkedinIcon } from "../../commons/icons/LinkedinIcon";
 import { DownloadIcon } from "../../commons/icons/DownloadIcon";
 import { MailIcon } from "../../commons/icons/MailIcon";
-
+import { Parallax } from "react-parallax";
+import fondo from '../../assets/img/undertheocean.jpg'
 export const Home = ({ language }) => {
   return (
     <div id="home"  className="home__container">
+        {/* <Parallax
+          style={{ height: '100%', width: '100%' }}
+          className="parallax"
+          blur={{ min: -15, max: 15 }}
+          bgImage={fondo}
+          strength={500}
+        > */}
+
       <div className="home__main">
         <Title language={language} />
         <InfoProfile language={language} />
       </div>
+
+        {/* </Parallax> */}
     </div>
   );
 };

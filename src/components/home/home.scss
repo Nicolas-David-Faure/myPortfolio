@@ -5,10 +5,10 @@
   &container{
     width: 100%;
     min-height: 100vh;
-    background-image: url('../../assets/img/undertheocean.jpg'); 
+    // background-image: url('../../assets/img/fondo2.jpg'); 
     background-position: center;
     background-size: cover;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    // box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
   &main {
@@ -18,7 +18,7 @@
     padding-top: 4rem;
     min-height: 100vh;
     width: 100%;
-    background-color: rgba(177, 6, 6, 0.178);
+    // background-color: rgba(177, 6, 6, 0.178);
     justify-content: space-around;
   }
 
