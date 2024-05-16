@@ -17,6 +17,7 @@ export const Aboutme = ({ language }) => {
   const { screenWidth } = useSelector((state) => state.screenSlice);
   return (
     <section className="aboutme__main">
+     
       <div className="aboutme__title">
         <h3 id="aboutme">{language === "en" ? "about me" : "sobre mí"}</h3>
       </div>
@@ -60,7 +61,7 @@ const AboutmeDescription = ({ language }) => {
       <div className="aboutme__description_text">
         {aboutmeDescriptionInformation[language].map((item, i) => (
           <div key={i}>
-            <h5>{item.subtitle}</h5>
+            <h4>{item.subtitle}</h4>
             <p>{item.description}</p>
           </div>
         ))}

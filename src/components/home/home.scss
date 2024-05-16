@@ -9,6 +9,7 @@
     background-position: center;
     background-size: cover;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    z-index: 2;
   }
   &main {
     display: flex;
@@ -46,16 +47,22 @@
     text-align: center;
    
     h1{
+      font-weight: 500;
+      font-family: "Lobster", sans-serif;
+      font-style: normal;
       text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
       color: rgba(205, 237, 43, 0.878);
-      font-size: 5rem;
+      font-size: 6rem;
+      letter-spacing: 2px;
+
     }
 
     h2{
       text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-
-      color: rgb(185, 185, 185);
-      font-size: 2rem;
+      font-family: "Lobster", sans-serif;
+      letter-spacing: 2px;
+      color: rgb(235, 235, 235);
+      font-size: 2.8rem;
     }
   }
 

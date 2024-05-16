@@ -9,12 +9,16 @@
     justify-content: space-around;
     flex-direction: column;
     margin-top: 1.5rem;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
   }
 
   &title {
     width: 90%;
     border-bottom: 1px solid white;
     margin: 0 auto;
+    z-index: 2;
     h3 {
       font-size: 2rem;
       text-transform: uppercase;
@@ -31,6 +35,8 @@
     flex-direction: column;
     height: fit-content;
     align-items: center;
+    z-index: 2;
+
   }
 
   &description {
@@ -44,23 +50,31 @@
     margin: 3rem 0;
 
     &_img {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.178);
       width: 30%;
       height: 100%;
       border-radius: 3px;
-      box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);
+      // box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);
+      overflow: hidden;
       img {
         width: 14rem;
         height: 23.5rem;
+        transition: all 0.3s ease-in-out;
         border-radius: 3px;
+        transform: scale(1.1); // Escalamos la imagen al 120% de su tamaño original al pasar el mouse sobre el contenedor padre
+        
+      }
+      &:hover img {
+        transform: scale(1.2); // Escalamos la imagen al 120% de su tamaño original al pasar el mouse sobre el contenedor padre
       }
     }
 
     &_text {
       width: 70%;
       text-align: start;
+      
+      background-color: rgba(0, 0, 0, 0.178);
 
-      background-color: rgba(0, 0, 0, 0.5);
       border-radius: 3px;
       box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);
 
@@ -113,7 +127,8 @@
 
   &services {
     width: 100%;
-
+ 
+    
     &__list {
       display: flex;
       flex-direction: row;
@@ -121,12 +136,13 @@
       justify-content: space-evenly;
       align-items: center;
       gap: 1rem;
-
+   
       .aboutme__service {
         width: calc(70% / 3);
         height: 400px;
         text-align: start;
-        background-color: rgba(0, 0, 0, 0.641);
+        background-color: rgba(0, 0, 0, 0.178);
+
         padding: 0.5rem 1rem 2rem;
         border-radius: 3px;
         box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);
@@ -138,7 +154,7 @@
         color: $color1;
 
         p {
-          color: $color1;
+          color: rgba(187, 61, 61, 0.87);
           font-size: 1.2rem;
           padding-right: 0.5rem;
         }
@@ -264,6 +280,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    z-index: 2;
 
     margin-top: 1rem;
 
@@ -344,3 +361,6 @@
     }
   }
 }
+
+
+

@@ -7,7 +7,7 @@ import { MailIcon } from "../../commons/icons/MailIcon";
 
 export const Home = ({ language }) => {
   return (
-    <div className="home__container">
+    <div id="home"  className="home__container">
       <div className="home__main">
         <Title language={language} />
         <InfoProfile language={language} />
@@ -18,7 +18,7 @@ export const Home = ({ language }) => {
 
 const Title = ({ language }) => {
   return (
-    <div id="home" className="home__title">
+    <div className="home__title">
       <h1>Nicolás Faure</h1>
       <h2>
         {language === "en"
