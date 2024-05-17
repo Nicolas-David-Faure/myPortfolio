@@ -11,10 +11,10 @@ import restaurantBuenaVida from "../assets/img/photos_slider/restaurantBuenaVida
 
 const demosID = {
   oneTraining: "watch?v=3-R8aJOCONU",
-  boxDelivery: "watch?v=ARsdy7WWggE", // TODO
+  boxDelivery: "watch?v=7iy2UWA6ZPk",
   oneFeel: "watch?v=TuupRYUqV1U",
   ewine: "watch?v=wALSTgk6IWE",
-  tmdbflix: "watch?v=3Z1c3Zt3y9E", //TODO
+  tmdbflix: "watch?v=WZI0W8W2AeU",
   odontologia: "watch?v=H9U-PDI0EZs",
   restaurantBuenaVida: "watch?v=ARsdy7WWggE"
 
