@@ -299,9 +299,9 @@ const ProjectSliderCardInfo = ({ infoCard, language }) => {
       <div className="projects__slider_container_card_info_video">
        
           <ReactPlayer
-          volume={50}
-          controls={true}
-          playing={true}
+          volume={0}
+          controls={false}
+          playing={false}
           width={"100%"}
           height={"100%"}
           url={`https://www.youtube.com/${infoCard.video}`}

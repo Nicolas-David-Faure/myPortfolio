@@ -59,16 +59,16 @@ html {
   }
 
   &1 {
-    @include handleShadow(20%, -20rem, 60rem, 60rem);
+    @include handleShadow(16%, -20rem, 60rem, 60rem);
     @include handleMedia(1360px) {
-      @include handleShadow(20%, -20rem, 60rem, 60rem);
+      @include handleShadow(13%, -20rem, 60rem, 60rem);
     }
     @include handleMedia(1024px) {
-      @include handleShadow(17%, -20rem, 60rem, 60rem);
+      @include handleShadow(13%, -20rem, 60rem, 60rem);
     }
 
     @include handleMedia(768px) {
-      @include handleShadow(10%, -20rem, 50rem, 50rem);
+      @include handleShadow(10%, -20rem, 60rem, 60rem);
     }
     // @include handleMedia(1300px) {
     //   @include handleShadow(10%, -10rem, 40rem, 40rem);
