@@ -5,6 +5,7 @@ import { LinkedinIcon } from "../../commons/icons/LinkedinIcon";
 import { DownloadIcon } from "../../commons/icons/DownloadIcon";
 import { MailIcon } from "../../commons/icons/MailIcon";
 
+import cvNicolas from '/Nicolas_Faure_CV_09012024.pdf'
 
 export const Home = ({ language }) => {
   return (
@@ -30,7 +31,7 @@ const Title = ({ language }) => {
           : "Desarrollador web full stack"}
       </h2>
 
-      <a href="../../../public/Nicolas_Faure_CV_09012024.pdf" download> 
+      <a href={cvNicolas} download> 
 
 
       <button className="home__downloadCV">
