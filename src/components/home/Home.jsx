@@ -5,7 +5,7 @@ import { LinkedinIcon } from "../../commons/icons/LinkedinIcon";
 import { DownloadIcon } from "../../commons/icons/DownloadIcon";
 import { MailIcon } from "../../commons/icons/MailIcon";
 
-import cvNicolas from '/Nicolas_Faure_CV_09012024.pdf'
+import cvNicolas from '/Nicolas_Faure_CV_240425.pdf'
 
 export const Home = ({ language }) => {
   return (
