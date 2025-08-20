@@ -1,72 +1,94 @@
-@import "../../assets/sass/varibles";
+@import "../../assets/sass/varibles.scss";
 
 .activitybar__ {
   &main {
     width: 100%;
-    height: 4rem;
+    height: 4.5rem;
     position: fixed;
-    background: rgba(1, 4, 18, 0.701);
+    background: linear-gradient(135deg, rgba(1, 4, 18, 0.95) 0%, rgba(2, 6, 31, 0.95) 100%);
     display: flex;
     align-items: center;
-    padding: .3rem 0;
-    justify-content: space-around;
-
+    padding: 0.5rem 2rem;
+    justify-content: space-between;
     z-index: 1000;
-
-    border-bottom: 1px solid rgba(118, 158, 184, 0.835);
-    box-shadow: 5px 5px 15px rgba(4, 52, 75, 0.619);
+    border-bottom: 1px solid rgba(118, 158, 184, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     a {
       height: 100%;
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
 
       figcaption {
         display: flex;
-        height: 85%;
-        width: fit-content;
+        height: 3.2rem;
+        width: 3.2rem;
         align-items: center;
-        border: 1px solid #f2f2f21d;
-     
-        background-color: rgba(255, 255, 0, 0.065);
-        border-radius: 100%;
-        transition: background-color 0.3s ease;
-        &:hover {
+        justify-content: center;
+        border: 2px solid rgba(205, 237, 43, 0.3);
+        background: linear-gradient(135deg, rgba(205, 237, 43, 0.1) 0%, rgba(205, 237, 43, 0.05) 100%);
+        border-radius: 50%;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
         
-          background-color: rgba(255, 255, 0, 0.126);
-
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(205, 237, 43, 0.2), transparent);
+          transition: left 0.5s;
         }
+        
+        &:hover {
+          border-color: rgba(205, 237, 43, 0.8);
+          background: linear-gradient(135deg, rgba(205, 237, 43, 0.2) 0%, rgba(205, 237, 43, 0.1) 100%);
+          transform: scale(1.05);
+          box-shadow: 0 8px 25px rgba(205, 237, 43, 0.3);
+          
+          &::before {
+            left: 100%;
+          }
+        }
+        
         strong {
-          font-size: 2rem;
-          color: rgba(205, 237, 43, 0.878);
-          font-weight: 500;
-          text-shadow: 2px 5px 10px rgba(85, 141, 7, 0.559);
+          font-size: 1.8rem;
+          color: rgba(205, 237, 43, 0.95);
+          font-weight: 700;
+          text-shadow: 0 2px 10px rgba(85, 141, 7, 0.5);
           font-family: "Lobster", sans-serif;
-
           font-style: normal;
-          padding: 0.7rem;
           margin: 0;
-          line-height: 0;
+          line-height: 1;
+          z-index: 1;
+          position: relative;
         }
       }
     }
 
     @media screen and (max-width: 768px) {
-      justify-content: space-between;
+      height: 4rem;
+      padding: 0.5rem 1rem;
+      
       a {
-        margin-left: 1rem;
         figcaption {
-          height: 75%;
+          height: 2.8rem;
+          width: 2.8rem;
+          
           strong {
             font-size: 1.5rem;
           }
         }
       }
 
-
-      .activitybar__language_cont{
-
-        padding-right: 1.5rem;
+      .activitybar__language_cont {
+        padding-right: 1rem;
       }
     }
   }
@@ -75,50 +97,126 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
-
     height: 100%;
-
-   
-    cursor: pointer;
-    transition: all 0.3s ease;
-    gap: 30px;
+    gap: 2rem;
+    
     @media screen and (min-width: 768px) {
-      padding-left: 4.5rem;
+      padding-left: 3rem;
     }
     
-
-    &__section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
-      height: 100%;
-
-      cursor: pointer;
-      transition: all 0.3s ease;
-      gap: 10px;
-      border-radius: 5px;
-      color: white;
-      text-transform: capitalize;
-      font-weight: 500;
-      text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.559);
-      a {
-        color: #f2f2f2;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        &:hover {
-          color: rgba(205, 237, 43, 0.878);
-        }
-      }
-    }
-    &__menuIcon {
-      width: 1.5rem;
-      height: 1.5rem;
-      fill: white;
-
-      margin-right: 1rem;
-      cursor: pointer;
+    @media screen and (max-width: 768px) {
+      gap: 1rem;
     }
   }
+
+  &sectionselector__section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border-radius: 8px;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(205, 237, 43, 0.8), rgba(122, 159, 254, 0.8));
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(-50%);
+    }
+    
+    &:hover {
+      background: rgba(205, 237, 43, 0.1);
+      
+      &::before {
+        width: 80%;
+      }
+      
+      a {
+        color: rgba(205, 237, 43, 0.95);
+        transform: translateY(-2px);
+      }
+    }
+    
+    a {
+      color: rgba(240, 248, 255, 0.9);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 1;
+      
+      &:hover {
+        color: rgba(205, 237, 43, 0.95);
+      }
+    }
+  }
+
+  &sectionselector__menuIcon {
+    width: 2rem;
+    height: 2rem;
+    fill: rgba(240, 248, 255, 0.9);
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+      fill: rgba(205, 237, 43, 0.95);
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Selector de idioma con mejor espaciado
+.activitybar__main > div:last-child {
+  padding-right: 4rem;
+  
+  @media screen and (max-width: 768px) {
+    padding-right: 2rem;
+  }
+}
+
+// Efectos adicionales para el header
+.activitybar__main {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(118, 158, 184, 0.3) 20%, 
+      rgba(118, 158, 184, 0.5) 50%, 
+      rgba(118, 158, 184, 0.3) 80%, 
+      transparent 100%
+    );
+  }
+}
+
+// Animación de entrada para el header
+@keyframes headerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activitybar__main {
+  animation: headerSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }

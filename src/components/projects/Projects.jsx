@@ -1,436 +1,306 @@
-import React, { useState, useRef, useEffect } from "react";
-//styles
+import React, { useState, useEffect } from "react";
 import "./projects.scss";
-//framer motion
-import { AnimatePresence, motion } from "framer-motion";
-//icons
-import { ArrowRightIcon } from "../../commons/icons/ArrowRightIcon";
-import { ArrowLeftIcon } from "../../commons/icons/ArrowLeftIcon";
-
+import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-
 import { infoProjects } from "../../mooks/infoProjects";
 import ReactPlayer from "react-player/youtube";
-
-//logos tachs
 import { arrayLogos } from "../../mooks/logosSkill";
-
 import gitHubLogo from "../../assets/img/logo-skills/Github.png";
-import { setIsDragging } from "../../store/slice/projects";
+import { setHeaderVisibility } from "../../store/slice/activityBar/activityBarSlice";
 
 export const Projects = ({ language }) => {
   return (
     <section className="projects__main">
-      <div className="aboutme__title">
-        <h3 id="projects">{language == "en" ? "projects" : "proyectos"}</h3>
+      <div className="projects__header">
+        <h3 id="projects">
+          {language === "en" ? "Projects" : "Proyectos"}
+        </h3>
+        <p className="projects__subtitle">
+          {language === "en" 
+            ? "Here are some of the projects I've worked on" 
+            : "Aquí tienes algunos de los proyectos en los que he trabajado"
+          }
+        </p>
       </div>
 
-      <ProjectsSlider language={language} />
+      <ProjectsGrid language={language} />
     </section>
   );
 };
 
-const ProjectsSlider = ({ language }) => {
-  const { screenWidth } = useSelector((state) => state.screenSlice);
-  const [pointX, setPointX] = useState(0);
-  const [cards, setCards] = useState(infoProjects[language]);
-  const [currentCards, setCurrentCards] = useState(0);
-  const [direction, setDirection] = useState(false);
-  const refProjectsSlider = useRef(null);
-
-  const cardsLength = cards.length;
-  const cardsToShow = screenWidth > 768 ? 3 : screenWidth > 600 ? 2 : 1;
-  const cardsDivided = Math.ceil(cardsLength / cardsToShow);
-  const cardsDisplayed = cards.slice(currentCards, currentCards + cardsToShow);
+const ProjectsGrid = ({ language }) => {
   const dispatch = useDispatch();
-
+  const [projects, setProjects] = useState([]);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [filter, setFilter] = useState("all");
 
   useEffect(() => {
-    setCards(infoProjects[language]);
+    setProjects(infoProjects[language] || []);
   }, [language]);
 
-  const handlePrevCard = () => {
-    setDirection(false);
-
-    if (currentCards === 0) {
-      // Si estamos en la primera tarjeta, volvemos al final del array
-      setCards((prev) => {
-        const cardsCopy = [...prev]; // Copia el array de fotos
-        const lastPhoto = cardsCopy.pop(); // Remueve el último elemento
-        cardsCopy.unshift(lastPhoto); // Agrega el último elemento al principio
-        return cardsCopy; // Retorna el nuevo array
-      });
-    } else {
-      // Si no estamos en la primera tarjeta, simplemente retrocedemos una tarjeta
-      setCurrentCards(currentCards - 1);
-    }
+  const handleProjectSelect = (project) => {
+    setSelectedProject(project);
+    dispatch(setHeaderVisibility(false)); // Oculta el header
   };
 
-  const handleNextCard = () => {
-    setDirection(true);
-
-    if (currentCards === cardsLength - 3) {
-      setCards((prev) => {
-        const cardsCopy = [...prev];
-        const cardshift = cardsCopy.shift();
-
-        cardsCopy.push(cardshift);
-        return cardsCopy;
-      });
-    } else {
-      setCurrentCards(currentCards + 1);
-    }
+  const handleProjectClose = () => {
+    setSelectedProject(null);
+    dispatch(setHeaderVisibility(true)); // Muestra el header
   };
 
-  const uniqueKeyGenerator = (i) => {
-    return Math.random(i * 5)
-      .toString(36)
-      .substr(2, 9);
-  };
+  const filters = [
+    { id: "all", label: language === "en" ? "All" : "Todos" },
+    { id: "fullstack", label: "Fullstack" },
+    { id: "frontend", label: "Frontend" },
+    { id: "backend", label: "Backend" }
+  ];
 
-  const handleDragStart = (event, info) => {
-    dispatch(setIsDragging(true));
-
-  }
-
-  const handleDrag = (event, info) => {
-    console.log(info.point.x)
- 
-    
-    if (info.point.x > 250) {
-      handlePrevCard();
-    }
-    if (info.point.x < 150) {
-      handleNextCard();
-    } 
-setTimeout(() => {
-  
-  dispatch(setIsDragging(false)) 
-}, 500)
-  
-  };
-
-
-
-
+  const filteredProjects = projects.filter(project => {
+    if (filter === "all") return true;
+    return project.application_type?.toLowerCase().includes(filter.toLowerCase());
+  });
 
   return (
-    <div className="projects__slider">
-      {screenWidth > 600 && (
-        <>
+    <div className="projects__container">
+      {/* Filters */}
+      <div className="projects__filters">
+        {filters.map((filterOption) => (
           <button
-            onClick={handlePrevCard}
-            className="projects__slider_arrowbtn projects__slider_arrowbtn_right"
+            key={filterOption.id}
+            className={`projects__filter-btn ${filter === filterOption.id ? 'active' : ''}`}
+            onClick={() => setFilter(filterOption.id)}
           >
-            {" "}
-            <ArrowLeftIcon />
+            {filterOption.label}
           </button>
-          <button
-            onClick={handleNextCard}
-            className="projects__slider_arrowbtn projects__slider_arrowbtn_left"
-          >
-            <ArrowRightIcon />{" "}
-          </button>
-        </>
-      )}
+        ))}
+      </div>
 
-
-  
-      <motion.div
-        drag={screenWidth > 600 ? false : 'x'} 
-        dragElastic={1}
-        onDragStart={handleDragStart}
-        
-        onDragEnd={handleDrag}
-        dragConstraints={{ left: 0, right: 0 }}
-        ref={refProjectsSlider}
-        className="projects__slider_container"
-       
-      >
-        {cardsDisplayed.map((card, i) => {
-          return (
-            <ProjectSliderCard
-              key={uniqueKeyGenerator(i)}
-              screenWidth={screenWidth}
-              direction={direction}
-              infoCard={card}
-              language={language}
-              // pointX={pointX}
-            />
-          );
-        })}
-      </motion.div>
-
-      <ProjectSliderCardSelector
-        cardsToShow={cardsToShow}
-        cardsLength={cardsLength}
-        cardsDisplayed={cardsDisplayed}
-        cardsDivided={cardsDivided}
-        pointX={pointX}
-     
-      />
-    </div>
-  );
-};
-
-const ProjectSliderCard = ({ infoCard, direction, screenWidth, language  }) => {
-
-  const {isDraggin} = useSelector((state) => state.projectsSlice);
-  const [cardIsHovered, setCardIsHovered] = useState(false);
-  const [timeTap, setTimeTap] = useState(0);
-
-
-
-  const handleCardHover = () => {
- 
-    setCardIsHovered(true);
-   
-  }
-  const handleOnHoverEnd = () => {
-    setCardIsHovered(false);
-   
-  }
-  const handleOnTouchStart = () => {
-    setTimeTap(new Date().getTime());
-
-  }
-
-
-  const handleOnTouchEnd = () => {
-    const timeTouch = new Date().getTime();
-    const timeDifference = timeTouch - timeTap;
-
-    if(!isDraggin){
-      if (!cardIsHovered && timeDifference < 300) {
-        setCardIsHovered(!cardIsHovered);
-       
-      }else if(cardIsHovered && timeDifference < 100){
-        setCardIsHovered(false)
-      
-      }
-    }
-  }
-
-  return (
-    <motion.div
-      layout
-      onHoverStart={handleCardHover}
-      onHoverEnd={handleOnHoverEnd}
-      className="projects__slider_container_card"
-      onTouchStart={handleOnTouchStart}
-      onTouchEnd={handleOnTouchEnd}
-    >
-      <AnimatePresence>
-        <motion.img
-          key={infoCard.img}
-          layout
-          initial={{ opacity: 0.2, x: direction ? "200%" : "-200%" }}
-          animate={{ opacity: cardIsHovered ? 0 : 1, x: 0 }} // Ajustar la duración y la transición
-          transition={{
-            duration: 0.3,
-            ease: "easeInOut",
-            type: "tween",
-            stiffness: screenWidth > 600 ? 100 : 800,
-
-            delay: screenWidth > 600 ? 0 : 0.2,
-          }}
-          exit={{ opacity: 1, x: direction ? "-100%" : "100%" }}
-          src={infoCard.img}
-          alt="project"
-        />
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {cardIsHovered && <ProjectSliderCardInfo infoCard={infoCard} language={language} />}
-      </AnimatePresence>
-    </motion.div>
-  );
-};
-
-
-const ProjectSliderCardInfo = ({ infoCard, language }) => {
-  const { title, year } = infoCard;
-
-  const animateEntry = {
-    on: {
-      opacity: 1,
-      top: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-    off: {
-      opacity: 0,
-      top: "100%",
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const logosFiltered = arrayLogos.filter((logo) => infoCard.techs.includes(logo.id));
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  let logosFilteredSlice = logosFiltered.slice(currentIndex, currentIndex + 3);
-
-  if (logosFilteredSlice.length < 3) {
-    logosFilteredSlice = [
-      ...logosFilteredSlice,
-      ...logosFiltered.slice(0, 3 - logosFilteredSlice.length),
-    ];
-  }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % logosFiltered.length);
-    }, 4000); // Cambia el intervalo según tus necesidades
-
-    return () => clearInterval(interval);
-  }, [logosFilteredSlice]);
-
-  return (
-    <motion.div
-      initial={"off"}
-      animate={"on"}
-      exit={"off"}
-      variants={animateEntry}
-      className="projects__slider_container_card_info"
-    >
-      <div className="projects__slider_container_card_info_video">
-       
-          <ReactPlayer
-          volume={0}
-          controls={false}
-          playing={false}
-          width={"100%"}
-          height={"100%"}
-          url={`https://www.youtube.com/${infoCard.video}`}
+      {/* Projects Grid */}
+      <div className="projects__grid">
+        {filteredProjects.map((project, index) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            index={index}
+            language={language}
+            onSelect={() => handleProjectSelect(project)}
           />
-
+        ))}
       </div>
-      <div className="projects__slider_container_card_info_description">
-        <div className="projects__slider_container_card_info_description_title">
-          <h4 className="">{title}</h4>
-          <strong>{year}</strong>
+
+      {/* Project Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            language={language}
+            onClose={handleProjectClose}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const ProjectCard = ({ project, index, language, onSelect }) => {
+  const logosFiltered = arrayLogos.filter((logo) => 
+    project.techs?.includes(logo.id)
+  );
+
+  return (
+    <motion.div
+      className="project__card"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: index * 0.05 }}
+      whileHover={{ y: -10 }}
+      onClick={onSelect}
+    >
+      <div className="project__card-image">
+        <img src={project.img} alt={project.title} />
+        <div className="project__card-overlay">
+          <button className="project__card-view-btn">
+            {language === "en" ? "View Details" : "Ver Detalles"}
+          </button>
         </div>
-        <div className="projects__slider_container_card_info_description_info">
-          <div className="projects__slider_container_card_info_description_info_techs">
-            <AnimatePresence />
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="projects__slider_container_card_info_description_info_techs_carousel"
-            >
-              <AnimatePresence>
-                {logosFilteredSlice.map(({ logo, id }, i) => {
-                  return (
-                    <motion.span
-                      layout
-                      key={i}
-                      initial={{ opacity: 0 }}
-                      animate={{
-                        opacity: [0, 0.5, 1],
+      </div>
 
-                        transition: {
-                          duration: 2,
-                          delay: i * 0.1,
-                          repeat: Infinity,
-                          repeatType: "reverse",
-                        },
-                      }}
-                      exit={{ opacity: 0 }}
-                    >
-                      <motion.img
-                        style={{ width: id === 8 ? 50 : "100%" }}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        layout
-                        key={i}
-                        alt={`Image ${i}`}
-                        src={logo}
-                      />
-                    </motion.span>
-                  );
-                })}
-              </AnimatePresence>
-            </motion.div>
-            <AnimatePresence />
-          </div>
-          <h3>{language === "en" ? "description" : "descripción"}</h3>
+      <div className="project__card-content">
+        <div className="project__card-header">
+          <h4 className="project__card-title">{project.title}</h4>
+          <span className="project__card-year">{project.year}</span>
+        </div>
 
-          <p className="projects__slider_container_card_info_description_info_desc">
-            {infoCard.description}
-          </p>
+        <p className="project__card-type">{project.application_type}</p>
+        
+        <p className="project__card-description">
+          {project.description?.length > 100 
+            ? `${project.description.substring(0, 100)}...` 
+            : project.description
+          }
+        </p>
 
-          <div className="projects__slider_container_card_info_description_functionalities">
-            <h3>{language === "en" ? "functionalities" : "funcionalidades"}</h3>
-
-            {Array.isArray(infoCard.functionalities)
-              ? infoCard.functionalities.map((func, i) => (
-                  <li
-                    className="projects__slider_container_card_info_description_functionalities_list projects__slider_container_card_info_description_functionalities_list_isArray"
-                    key={i}
-                  >
-                    {func}
-                  </li>
-                ))
-              : Object.entries(infoCard.functionalities).map(([title, values], i) => {
-                  return (
-                    <li
-                      className="projects__slider_container_card_info_description_functionalities_list"
-                      key={i}
-                    >
-                      <h4>{title}</h4>
-                      <ul>
-                        {values.map((value, i) => (
-                          <li key={i}>{value}</li>
-                        ))}
-                      </ul>
-                    </li>
-                  );
-                })}
-          </div>
-          <section className="projects__slider_container_card_info_description_info_repositories">
-            {Object.entries(infoCard.repositories).map(([type, url], i) => {
-              const classLink =
-                "projects__slider_container_card_info_description_info_repositories";
-              return (
-                url !== "" && (
-                  <a
-                    className={`${classLink}${type === "server" ? "_api" : "_client"}`}
-                    key={i + url}
-                    href={url}
-                    target="_blank"
-                  >
-                    <img src={gitHubLogo} alt="logo github" />
-                    
-                    <span>{type === "server" ? "api" : type}</span> 
-                  </a>
-                )
-              );
-            })}
-          </section>
+        <div className="project__card-techs">
+          {logosFiltered.slice(0, 4).map((tech, i) => (
+            <motion.img
+              key={tech.id}
+              src={tech.logo}
+              alt={tech.id}
+              style={{ width: tech.id === 8 ? 30 : 25 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.1 }}
+            />
+          ))}
+          {logosFiltered.length > 4 && (
+            <span className="project__card-more-techs">
+              +{logosFiltered.length - 4}
+            </span>
+          )}
         </div>
       </div>
     </motion.div>
   );
 };
 
-const ProjectSliderCardSelector = ({ cardsLength, cardsDisplayed, cardsToShow }) => {
+const ProjectModal = ({ project, language, onClose }) => {
+  const logosFiltered = arrayLogos.filter((logo) => 
+    project.techs?.includes(logo.id)
+  );
+
   return (
-    <div className="projects__slider_selector ">
-      {Array.from({ length: cardsLength }, (card, i) => (
-        <div
-          className={`projects__slider_selector_btn ${
-            cardsDisplayed.find((card) => card.id - 1 === i)
-              ? "projects__slider_selector_btn_selected"
-              : ""
-          } `}
-          key={i * 1235}
-        ></div>
-      ))}
-    </div>
+    <motion.div
+      className="project__modal-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="project__modal"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="project__modal-close" onClick={onClose}>
+          ×
+        </button>
+
+        <div className="project__modal-content">
+          <div className="project__modal-header">
+            <h2>{project.title}</h2>
+            <div className="project__modal-meta">
+              <span className="project__modal-year">{project.year}</span>
+              <span className="project__modal-type">{project.application_type}</span>
+              {project.duration && (
+                <span className="project__modal-duration">{project.duration}</span>
+              )}
+            </div>
+          </div>
+
+          <div className="project__modal-body">
+            <div className="project__modal-media">
+              <img src={project.img} alt={project.title} />
+              {project.video && (
+                <div className="project__modal-video">
+                  <ReactPlayer
+                    url={`https://www.youtube.com/${project.video}`}
+                    width="100%"
+                    height="200px"
+                    controls={true}
+                    volume={0}
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="project__modal-info">
+              <div className="project__modal-section">
+                <h3>{language === "en" ? "Description" : "Descripción"}</h3>
+                <p>{project.description}</p>
+              </div>
+
+              <div className="project__modal-section">
+                <h3>{language === "en" ? "Technologies" : "Tecnologías"}</h3>
+                <div className="project__modal-techs">
+                  {logosFiltered.map((tech) => (
+                    <div key={tech.id} className="project__modal-tech">
+                      <img 
+                        src={tech.logo} 
+                        alt={tech.id}
+                        style={{ width: tech.id === 8 ? 40 : 35 }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="project__modal-section">
+                <h3>{language === "en" ? "Functionalities" : "Funcionalidades"}</h3>
+                {Array.isArray(project.functionalities) ? (
+                  <ul className="project__modal-functionalities">
+                    {project.functionalities.map((func, i) => (
+                      <li key={i}>{func}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="project__modal-functionalities-grouped">
+                    {Object.entries(project.functionalities || {}).map(([title, values], i) => (
+                      <div key={i} className="project__modal-functionality-group">
+                        <h4>{title}</h4>
+                        <ul>
+                          {values.map((value, j) => (
+                            <li key={j}>{value}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {project.contributors && (
+                <div className="project__modal-section">
+                  <h3>{language === "en" ? "Contributors" : "Contribuidores"}</h3>
+                  <div className="project__modal-contributors">
+                    {project.contributors.map((contributor, i) => (
+                      <span key={i} className="project__modal-contributor">
+                        {contributor}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {project.repositories && (
+                <div className="project__modal-section">
+                  <h3>{language === "en" ? "Repositories" : "Repositorios"}</h3>
+                  <div className="project__modal-repositories">
+                    {Object.entries(project.repositories).map(([type, url], i) => {
+                      if (!url || url === "cant show") return null;
+                      return (
+                        <a
+                          key={i}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project__modal-repo-link"
+                        >
+                          <img src={gitHubLogo} alt="GitHub" />
+                          <span>
+                            {type === "server" ? "API" : type === "client" ? "Client" : type}
+                          </span>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { MenuIcon } from "../../commons/icons/MenuIcon";
 import { motion, useAnimation } from "framer-motion";
 import { setScreenWidth } from "../../store/slice/screen/screenSlice";
-import { setToggleMenuDropdown } from "../../store/slice/activityBar/activityBarSlice";
+import { setToggleMenuDropdown, setHeaderVisibility } from "../../store/slice/activityBar/activityBarSlice";
 import { MenuDropdown } from "./MenuDropdown";
 import logo from "../../assets/logos/1.png";
 
@@ -14,18 +14,26 @@ export const ActivityBar = ({ language }) => {
   const controls = useAnimation();
   const windowWidth = useSelector((state) => state.screenSlice.screenWidth);
   const menuDropdownState = useSelector((state) => state.activityBarSlice.menuDropdown);
+  const isHeaderVisible = useSelector((state) => state.activityBarSlice.isHeaderVisible);
 
   const [prevScrollY, setPrevScrollY] = useState(0);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-
-    if (scrollY > prevScrollY) {
-      // Hacia abajo: oculta el header
-      controls.start({ opacity: 0, y: -80 });
-    } else {
-      // Hacia arriba: muestra el header
-      controls.start({ opacity: 1, y: 0 });
+    const isDown = scrollY > prevScrollY;
+    
+    // Solo cambiar si la dirección del scroll cambió
+    if (isDown !== isScrollingDown) {
+      setIsScrollingDown(isDown);
+      
+      if (isDown) {
+        // Hacia abajo: oculta el header
+        controls.start({ opacity: 0, y: -80 });
+      } else {
+        // Hacia arriba: muestra el header
+        controls.start({ opacity: 1, y: 0 });
+      }
     }
 
     setPrevScrollY(scrollY);
@@ -33,19 +41,28 @@ export const ActivityBar = ({ language }) => {
 
   // Agrega un listener para el evento de scroll
   useEffect(() => {
-    // if (windowWidth > 768){
-    //   window.addEventListener('scroll', handleScroll);
-    //  return () => {
-    //    window.removeEventListener('scroll', handleScroll);
-    //  };
-    // }
-  }, [prevScrollY, windowWidth]);
+    if (windowWidth > 768) {
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [prevScrollY, windowWidth, isScrollingDown]);
+
+  // Controla la visibilidad del header basado en el estado de Redux (para el modal)
+  useEffect(() => {
+    if (isHeaderVisible) {
+      controls.start({ opacity: 1, y: 0 });
+    } else {
+      controls.start({ opacity: 0, y: -80 });
+    }
+  }, [isHeaderVisible, controls]);
 
   return (
     <motion.nav
       initial={{ opacity: 1, y: 0 }}
       animate={controls}
-      transition={{ duration: 0.1, type: "tween", ease: "linear" }}
+      transition={{ duration: 0.3, type: "tween", ease: "easeInOut" }}
       className="activitybar__main"
     >
       <a href="#home">
