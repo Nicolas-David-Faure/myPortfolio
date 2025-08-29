@@ -7,6 +7,7 @@ import { MailIcon } from "../../commons/icons/MailIcon";
 import { motion } from "framer-motion";
 
 import cvNicolas from '/Nicolas_Faure_CV_18082025.pdf'
+import cvNicolasES from '/cv_es_nicolas_faure.pdf'
 
 export const Home = ({ language }) => {
   return (
@@ -85,6 +86,17 @@ export const Home = ({ language }) => {
 };
 
 const Title = ({ language }) => {
+
+
+  const [cv, setCv] = useState(cvNicolas);
+
+  useEffect(() => {
+    if (language === "es") {
+      setCv(cvNicolasES);
+    } else {
+      setCv(cvNicolas);
+    }
+  }, [language]);
   const titleVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { 
@@ -141,7 +153,7 @@ const Title = ({ language }) => {
         variants={itemVariants}
       >
         <motion.a 
-          href={cvNicolas} 
+          href={cv} 
           download
           className="home__downloadCV"
           whileHover={{ scale: 1.05, y: -3 }}
