@@ -6,7 +6,7 @@ import { DownloadIcon } from "../../commons/icons/DownloadIcon";
 import { MailIcon } from "../../commons/icons/MailIcon";
 import { motion } from "framer-motion";
 
-import cvNicolas from '/Nicolas_Faure_CV_240425.pdf'
+import cvNicolas from '/Nicolas_Faure_CV_18082025.pdf'
 
 export const Home = ({ language }) => {
   return (
