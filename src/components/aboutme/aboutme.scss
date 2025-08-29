@@ -12,6 +12,8 @@
     position: relative;
     z-index: 2;
     overflow: hidden;
+    max-width: 1366px;
+    margin: 0 auto;
   }
 
   &title {

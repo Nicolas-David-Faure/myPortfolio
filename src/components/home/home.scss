@@ -348,20 +348,24 @@
   }
 
   &scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     gap: 0.5rem;
     color: rgba(240, 248, 255, 0.6);
     font-size: 0.9rem;
     font-weight: 400;
     cursor: pointer;
     transition: all 0.3s ease;
-    
+
     &:hover {
       color: rgba(205, 237, 43, 0.8);
     }
@@ -371,6 +375,10 @@
     font-size: 1.5rem;
     color: rgba(205, 237, 43, 0.6);
     animation: bounce 2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 }
 
